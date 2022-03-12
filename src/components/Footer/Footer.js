@@ -6,7 +6,7 @@ const Box = styled.div`
   min-height: 10vh;
   border: 0px;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 `;
 
@@ -37,8 +37,9 @@ const Footer = () => {
   return (
     <>
       <Box>
-        <Image src={"img/back.svg"}></Image>
-        <Image src={"img/home.svg"}></Image>
+        <Image src={"img/back.png"}></Image>
+        <Image src={"img/home.png"}></Image>
+        <Image src={"img/add.png"}></Image>
         {/* <Image src={"img/adding-button.svg"}></Image> */}
       </Box>
     </>
