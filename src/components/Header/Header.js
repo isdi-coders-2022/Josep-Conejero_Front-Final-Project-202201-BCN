@@ -1,8 +1,9 @@
 import styled from "styled-components";
+import { headerBackgroundColor, mainTextColor } from "../../variables";
 
 const Box = styled.div`
   width: 100%;
-  background-color: #e5e5e5;
+  background-color: ${headerBackgroundColor};
   min-height: 10vh;
   border: 0px;
   display: flex;
@@ -29,12 +30,12 @@ const Image = styled.img`
 `;
 
 const TitleText = styled.p`
-  color: black;
+  color: ${mainTextColor};
   padding: 0;
   background-color: transparent;
   text-align: center;
-  font-size: 22px;
-  font-weight: 400;
+  font-size: 25px;
+  font-weight: 600;
   margin: 10px;
 `;
 
