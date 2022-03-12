@@ -13,6 +13,7 @@
 /build
 
 # misc
+/images
 .vscode
 .env
 .DS_Store
