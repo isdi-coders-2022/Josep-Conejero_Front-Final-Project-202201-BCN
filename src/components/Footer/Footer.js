@@ -1,8 +1,16 @@
 import styled from "styled-components";
+import IconButton from "../IconButton/IconButton";
+import { useNavigate } from "react-router-dom";
+import {
+  footerBackgroundColor,
+  iconBackPath,
+  iconHomePath,
+  iconAddPath,
+} from "../../variables";
 
 const Box = styled.div`
   width: 100%;
-  background-color: #e5e5e5;
+  background-color: ${footerBackgroundColor};
   min-height: 10vh;
   border: 0px;
   display: flex;
@@ -10,37 +18,33 @@ const Box = styled.div`
   align-items: center;
 `;
 
-/* const ImageBox = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 10px;
-`; */
-
-const Image = styled.img`
-  color: red;
-  height: 30px;
-  width: 30px;
-  padding: 5px;
-`;
-
-/* const TitleText = styled.p`
-  color: black;
-  padding: 0;
-  background-color: transparent;
-  text-align: center;
-  font-size: 22px;
-  margin: 10px;
-`; */
-
 const Footer = () => {
+  const navigate = useNavigate();
+  const actionOnClickBack = () => {
+    navigate("/home");
+  };
+  const actionOnClickHome = () => {
+    navigate("/home");
+  };
+  const actionOnClickAdd = () => {
+    navigate("/home");
+  };
+
   return (
     <>
       <Box>
-        <Image src={"img/back.png"}></Image>
-        <Image src={"img/home.png"}></Image>
-        <Image src={"img/add.png"}></Image>
-        {/* <Image src={"img/adding-button.svg"}></Image> */}
+        <IconButton
+          src={iconBackPath}
+          actionOnClick={actionOnClickBack}
+        ></IconButton>
+        <IconButton
+          src={iconHomePath}
+          actionOnClick={actionOnClickHome}
+        ></IconButton>
+        <IconButton
+          src={iconAddPath}
+          actionOnClick={actionOnClickAdd}
+        ></IconButton>
       </Box>
     </>
   );
