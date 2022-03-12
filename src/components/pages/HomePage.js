@@ -1,9 +1,30 @@
-/* import { Button } from "@nextui-org/react"; */
-
 import React from "react";
 import styled from "styled-components";
 import ButtonImage from "../ButtonImage/ButtonImage";
 import { useNavigate } from "react-router-dom";
+import {
+  homeBackgroundColor,
+  applicationNameTextColor,
+  iconListsPath,
+  iconApplicationPath,
+  alternativeTextApplicationIcon,
+  applicationName,
+  alternativeTextIconLists,
+  textIconLists,
+  backgroundColorIconLists,
+  iconAllQuestionsPath,
+  backgroundColorIconAllQuestions,
+  textIconAllQuestions,
+  alternativeTextIconAllQuestions,
+  alternativeTextIconAQuestion,
+  iconAQuestionPath,
+  textIconAQuestion,
+  backgroundColorIconAQuestion,
+  alternativeTextIconReview,
+  iconReviewPath,
+  textIconReview,
+  backgroundColorIconReview,
+} from "../../variables";
 
 /* import React, { useEffect } from "react"; */
 /* import { useDispatch, useSelector } from "react-redux"; */
@@ -14,7 +35,7 @@ const Container = styled.main`
   width: 100%;
   min-height: 100vh;
   text-align: center;
-  background-color: #e5e5e5;
+  background-color: ${homeBackgroundColor};
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -24,59 +45,58 @@ const Container = styled.main`
 const ApplicationName = styled.h1`
   margin: 0px;
   font-size: 30px;
-  color: #453;
+  color: ${applicationNameTextColor};
   padding-bottom: 20px;
 `;
 
 const HomePage = () => {
   const navigate = useNavigate();
-  const alternativeText = "Application Icon. Screen and books.";
-  const iconPath = "img/laptopandbooks.svg";
   const buttonLists = {
-    favClass: ".clasebutton1",
-    imageAlt: "Icon about several lists",
-    image: "img/lists.svg",
-    actionOnClick: () => {},
-    title: "LISTS",
-    bgcolor: "#00E6FF",
+    imageAlt: alternativeTextIconLists,
+    image: iconListsPath,
+    actionOnClick: () => {
+      navigate("/lists");
+    },
+    title: textIconLists,
+    bgcolor: backgroundColorIconLists,
   };
 
   const buttonAllQuestions = {
-    favClass: ".clasebutton1",
-    imageAlt: "Icon about several lists",
-    image: "img/all-questions.svg",
+    imageAlt: alternativeTextIconAllQuestions,
+    image: iconAllQuestionsPath,
     actionOnClick: () => {
       navigate("/all-questions");
     },
-    title: "ALL QUESTIONS",
-    bgcolor: "#FFB100",
+    title: textIconAllQuestions,
+    bgcolor: backgroundColorIconAllQuestions,
   };
 
   const buttonOneQuestion = {
-    favClass: ".clasebutton1",
-    imageAlt: "Icon about several lists",
-    image: "img/a-question.svg",
-    actionOnClick: () => {},
-    title: "CREATE A QUESTION",
-    bgcolor: "#FFFE00",
+    imageAlt: alternativeTextIconAQuestion,
+    image: iconAQuestionPath,
+    actionOnClick: () => {
+      navigate("/question");
+    },
+    title: textIconAQuestion,
+    bgcolor: backgroundColorIconAQuestion,
   };
 
   const buttonReview = {
-    favClass: ".clasebutton1",
-    imageAlt: "Icon about several lists",
-    image: "img/review 2.svg",
-    actionOnClick: () => {},
-    title: "CONTINUE LAST REVIEW",
-    bgcolor: "#28FF00",
+    imageAlt: alternativeTextIconReview,
+    image: iconReviewPath,
+    actionOnClick: () => {
+      navigate("/review");
+    },
+    title: textIconReview,
+    bgcolor: backgroundColorIconReview,
   };
 
   return (
     <Container>
-      <img alt={alternativeText} src={iconPath} />
-      <ApplicationName>LEARNING HELPER</ApplicationName>
+      <img alt={alternativeTextApplicationIcon} src={iconApplicationPath} />
+      <ApplicationName>{applicationName}</ApplicationName>
       <div>
         <ButtonImage
-          favClass={buttonLists.favClass}
           imageAlt={buttonLists.imageAlt}
           image={buttonLists.image}
           actionOnClick={buttonLists.actionOnClick}
@@ -85,7 +105,6 @@ const HomePage = () => {
         ></ButtonImage>
 
         <ButtonImage
-          favClass={buttonAllQuestions.favClass}
           imageAlt={buttonAllQuestions.imageAlt}
           image={buttonAllQuestions.image}
           actionOnClick={buttonAllQuestions.actionOnClick}
@@ -94,7 +113,6 @@ const HomePage = () => {
         ></ButtonImage>
 
         <ButtonImage
-          favClass={buttonOneQuestion.favClass}
           imageAlt={buttonOneQuestion.imageAlt}
           image={buttonOneQuestion.image}
           actionOnClick={buttonOneQuestion.actionOnClick}
@@ -103,7 +121,6 @@ const HomePage = () => {
         ></ButtonImage>
 
         <ButtonImage
-          favClass={buttonReview.favClass}
           imageAlt={buttonReview.imageAlt}
           image={buttonReview.image}
           actionOnClick={buttonReview.actionOnClick}

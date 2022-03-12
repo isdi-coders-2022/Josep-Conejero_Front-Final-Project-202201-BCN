@@ -1,8 +1,14 @@
 import styled from "styled-components";
 import propTypes from "prop-types";
+import {
+  buttonColor,
+  selectedButtonColor,
+  titleTextButtonColor,
+  selectedTitleTextButtonColor,
+} from "../../variables";
 
 const ButtonImg = styled.button`
-  background-color: #d715c3;
+  background-color: ${buttonColor};
   border-radius: 10px;
   margin: 10px;
   border: 0px;
@@ -12,16 +18,25 @@ const ButtonImg = styled.button`
   width: 220px;
   height: 70px;
   cursor: pointer;
+  transition: 0.25s;
+  &:hover {
+    background-color: ${selectedButtonColor};
+  }
+
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 `;
 
 const TitleText = styled.p`
-  color: white;
+  color: ${titleTextButtonColor};
   margin: 0;
   padding: 0;
   background-color: transparent;
   text-align: right;
   font-size: 20px;
   padding-right: 10px;
+  ${ButtonImg}:hover & {
+    color: ${selectedTitleTextButtonColor};
+  }
 `;
 
 const ImageBox = styled.div`

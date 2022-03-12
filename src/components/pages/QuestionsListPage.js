@@ -2,17 +2,17 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import MainBody from "../MainBody/MainBody";
 import {
-  textIconAllQuestions,
+  textIconQuestionsList,
   iconAllQuestionsPath,
   backgroundColorIconAllQuestions,
   alternativeTextIconAllQuestions,
 } from "../../variables";
 
-const AllQuestionsPage = () => {
+const QuestionsListPage = () => {
   return (
     <>
       <Header
-        title={textIconAllQuestions}
+        title={textIconQuestionsList}
         picture={iconAllQuestionsPath}
         backgroundColor={backgroundColorIconAllQuestions}
         alternativeTextImage={alternativeTextIconAllQuestions}
@@ -23,4 +23,4 @@ const AllQuestionsPage = () => {
   );
 };
 
-export default AllQuestionsPage;
+export default QuestionsListPage;
