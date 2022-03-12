@@ -10,12 +10,12 @@ const Box = styled.div`
   align-items: center;
 `;
 
-const ImageBox = styled.div`
+/* const ImageBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 10px;
-`;
+`; */
 
 const Image = styled.img`
   color: red;
@@ -24,14 +24,14 @@ const Image = styled.img`
   padding: 5px;
 `;
 
-const TitleText = styled.p`
+/* const TitleText = styled.p`
   color: black;
   padding: 0;
   background-color: transparent;
   text-align: center;
   font-size: 22px;
   margin: 10px;
-`;
+`; */
 
 const Footer = () => {
   return (
@@ -39,7 +39,7 @@ const Footer = () => {
       <Box>
         <Image src={"img/back.svg"}></Image>
         <Image src={"img/home.svg"}></Image>
-        <Image src={"img/adding-button.svg"}></Image>
+        {/* <Image src={"img/adding-button.svg"}></Image> */}
       </Box>
     </>
   );
