@@ -6,42 +6,56 @@ import {
   lineBetweenListedQuestionsColor,
 } from "../../variables";
 
-const Box = styled.div`
+const Container = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-around;
+  align-items: center;
   border-bottom: solid ${lineBetweenListedQuestionsColor} 1px;
   &:hover {
     background-color: ${hoveredListedQuestionColor};
   }
 `;
 
-const Image = styled.div`
-  height: 30px;
-  width: 30px;
-  background-color: black;
-  border-radius: 10px;
-  padding: 5px;
+const LeftBox = styled.div`
+  width: 88%;
+  display: flex;
+  align-items: center;
   cursor: pointer;
+`;
+
+const RightBox = styled.div`
+  width: 12%;
+  /* background-color: green; */
+  display: flex;
 `;
 
 const Text = styled.p`
   color: ${questionTextColor};
   padding: 0;
-  background-color: transparent;
-  text-align: center;
+  width: 85%;
+  text-align: left;
   font-size: 25px;
   font-weight: 600;
   margin: 10px;
-  cursor: pointer;
   transition: 0.25s;
-  ${Box}:hover & {
+  ${Container}:hover & {
     font-size: 30px;
     color: ${hoveredQuestionTextColor};
+    padding-left: 2.5px;
+    padding-right: 2.5px;
   }
 `;
 
-const Icon = styled.img`
+const IconLeft = styled.img`
+  height: 30px;
+  width: 30px;
+  padding: 5px;
+  padding-left: 15px;
+  transition: 0.25s;
+`;
+
+const IconRight = styled.img`
   height: 30px;
   width: 30px;
   padding: 5px;
@@ -55,13 +69,24 @@ const Icon = styled.img`
   }
 `;
 
-const ListedQuestion = ({ src, questionTitle }) => {
+const fitWidthText = (text) => {
+  /*esto se tiene que hacer con gestión del estado de react*/
+  return text.length > 20 ? text.slice(0, 19) + "..." : text;
+};
+
+const ListedQuestion = ({ srcType, srcDelete, questionTitle }) => {
   return (
-    <Box>
-      <Image></Image>
-      <Text>{questionTitle}</Text>
-      <Icon alt="Remove Icon" src={src}></Icon>
-    </Box>
+    <Container>
+      <LeftBox>
+        <IconLeft alt="Type of list" src={srcType}></IconLeft>
+        <Text className="ListedQuestionText">
+          {fitWidthText(questionTitle)}
+        </Text>
+      </LeftBox>
+      <RightBox>
+        <IconRight alt="Remove Icon" src={srcDelete}></IconRight>
+      </RightBox>
+    </Container>
   );
 };
 
