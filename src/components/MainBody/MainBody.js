@@ -7,7 +7,6 @@ import {
   iconLittleQuestionPath,
 } from "../../variables";
 import ListedQuestion from "../ListedQuestion/ListedQuestion";
-import apiPrueba from "../../apiPrueba";
 
 const Box = styled.div`
   width: 100%;
@@ -27,16 +26,12 @@ const VoidBox = styled.div`
 `;
 
 const MainBody = ({ list, screen }) => {
-  /* console.log(questionsList);
-  debugger; */
-  /* const questionsList = apiPrueba; */
   const questionsList = list;
   const icono = iconLittleQuestionPath;
   return (
     <>
       <VoidBox></VoidBox>
       <Box>
-        {/* {questionsList.length > 0 && */}
         {screen === "questions" &&
           questionsList.length > 0 &&
           questionsList.map((item, index) => {
