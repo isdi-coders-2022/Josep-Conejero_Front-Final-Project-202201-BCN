@@ -1,11 +1,19 @@
 import styled from "styled-components";
-import { questionTextColor } from "../../variables";
+import {
+  questionTextColor,
+  hoveredListedQuestionColor,
+  hoveredQuestionTextColor,
+  lineBetweenListedQuestionsColor,
+} from "../../variables";
 
 const Box = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-around;
-  border-bottom: solid black 1px;
+  border-bottom: solid ${lineBetweenListedQuestionsColor} 1px;
+  &:hover {
+    background-color: ${hoveredListedQuestionColor};
+  }
 `;
 
 const Image = styled.div`
@@ -26,6 +34,11 @@ const Text = styled.p`
   font-weight: 600;
   margin: 10px;
   cursor: pointer;
+  transition: 0.25s;
+  ${Box}:hover & {
+    font-size: 30px;
+    color: ${hoveredQuestionTextColor};
+  }
 `;
 
 const Icon = styled.img`
