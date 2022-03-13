@@ -3,7 +3,7 @@ import {
   mainBackgroundColor,
   iconDeletePath,
   footerBackgroundColor,
-  iconLittleListsPath,
+  /* iconLittleListsPath, */
   iconLittleQuestionPath,
 } from "../../variables";
 import ListedQuestion from "../ListedQuestion/ListedQuestion";
