@@ -9,6 +9,9 @@ export const iconReviewPath = "img/review 2.svg";
 export const iconBackPath = "img/back.png";
 export const iconHomePath = "img/home.png";
 export const iconAddPath = "img/add.png";
+export const iconDeletePath = "img/delete.png";
+export const iconLittleListsPath = "img/lists.png";
+export const iconLittleQuestionPath = "img/question.png";
 
 export const backgroundColorIconLists = "#00E6FF";
 export const backgroundColorIconAllQuestions = "#FFB100";

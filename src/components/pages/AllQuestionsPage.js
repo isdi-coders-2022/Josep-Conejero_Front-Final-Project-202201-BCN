@@ -7,6 +7,7 @@ import {
   backgroundColorIconAllQuestions,
   alternativeTextIconAllQuestions,
 } from "../../variables";
+import apiPrueba from "../../apiPrueba";
 
 const AllQuestionsPage = () => {
   return (
@@ -17,7 +18,7 @@ const AllQuestionsPage = () => {
         backgroundColor={backgroundColorIconAllQuestions}
         alternativeTextImage={alternativeTextIconAllQuestions}
       ></Header>
-      <MainBody></MainBody>
+      <MainBody list={apiPrueba} screen={"questions"}></MainBody>
       <Footer></Footer>
     </>
   );
