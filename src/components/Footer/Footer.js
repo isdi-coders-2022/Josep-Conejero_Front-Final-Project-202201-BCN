@@ -16,6 +16,8 @@ const Box = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  position: fixed;
+  bottom: 0;
 `;
 
 const Footer = () => {
