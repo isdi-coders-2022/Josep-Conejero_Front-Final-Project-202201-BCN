@@ -1,8 +1,10 @@
 import styled from "styled-components";
 import {
   mainBackgroundColor,
-  iconListsPath,
+  iconDeletePath,
   footerBackgroundColor,
+  iconLittleListsPath,
+  iconLittleQuestionPath,
 } from "../../variables";
 import ListedQuestion from "../ListedQuestion/ListedQuestion";
 import apiPrueba from "../../apiPrueba";
@@ -24,83 +26,29 @@ const VoidBox = styled.div`
   background-color: ${footerBackgroundColor};
 `;
 
-const MainBody = () => {
+const MainBody = ({ list, screen }) => {
+  /* console.log(questionsList);
+  debugger; */
+  /* const questionsList = apiPrueba; */
+  const questionsList = list;
+  const icono = iconLittleQuestionPath;
   return (
     <>
       <VoidBox></VoidBox>
       <Box>
-        <ListedQuestion
-          src={iconListsPath}
-          questionTitle={apiPrueba[0].question}
-        />
-        <ListedQuestion
-          src={iconListsPath}
-          questionTitle={apiPrueba[1].question}
-        />
-        <ListedQuestion
-          src={iconListsPath}
-          questionTitle={apiPrueba[2].question}
-        />
-        <ListedQuestion
-          src={iconListsPath}
-          questionTitle={apiPrueba[0].question}
-        />
-        <ListedQuestion
-          src={iconListsPath}
-          questionTitle={apiPrueba[0].question}
-        />
-        <ListedQuestion
-          src={iconListsPath}
-          questionTitle={apiPrueba[0].question}
-        />
-        <ListedQuestion
-          src={iconListsPath}
-          questionTitle={apiPrueba[0].question}
-        />
-        <ListedQuestion
-          src={iconListsPath}
-          questionTitle={apiPrueba[0].question}
-        />
-        <ListedQuestion
-          src={iconListsPath}
-          questionTitle={apiPrueba[0].question}
-        />
-        <ListedQuestion
-          src={iconListsPath}
-          questionTitle={apiPrueba[0].question}
-        />
-        <ListedQuestion
-          src={iconListsPath}
-          questionTitle={apiPrueba[0].question}
-        />{" "}
-        <ListedQuestion
-          src={iconListsPath}
-          questionTitle={apiPrueba[0].question}
-        />
-        <ListedQuestion
-          src={iconListsPath}
-          questionTitle={apiPrueba[0].question}
-        />
-        <ListedQuestion
-          src={iconListsPath}
-          questionTitle={apiPrueba[0].question}
-        />
-        <ListedQuestion
-          src={iconListsPath}
-          questionTitle={apiPrueba[0].question}
-        />
-        <ListedQuestion
-          src={iconListsPath}
-          questionTitle={apiPrueba[0].question}
-        />
-        <ListedQuestion
-          src={iconListsPath}
-          questionTitle={apiPrueba[1].question}
-        />
-        <ListedQuestion
-          src={iconListsPath}
-          questionTitle={apiPrueba[2].question}
-        />
+        {/* {questionsList.length > 0 && */}
+        {screen === "questions" &&
+          questionsList.length > 0 &&
+          questionsList.map((item, index) => {
+            return (
+              <ListedQuestion
+                srcType={icono}
+                srcDelete={iconDeletePath}
+                questionTitle={item.question}
+                key={item.id}
+              ></ListedQuestion>
+            );
+          })}
       </Box>
       <VoidBox></VoidBox>
     </>
