@@ -9,6 +9,8 @@ const Box = styled.div`
   display: flex;
   justify-content: left;
   align-items: center;
+  position: fixed;
+  top: 0;
 `;
 
 const ImageBox = styled.div`
