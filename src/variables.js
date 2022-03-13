@@ -33,6 +33,8 @@ export const textIconCreateAList = "CREATE A LIST";
 export const textIconCreateRemoveFromList = "CREATE/REMOVE FROM A LIST";
 
 export const mainTextColor = "#d715c3";
+export const questionTextColor = "#000";
+export const hoveredQuestionTextColor = "#d715c3";
 export const applicationNameTextColor = "#453";
 
 export const titleTextButtonColor = "#fff";
