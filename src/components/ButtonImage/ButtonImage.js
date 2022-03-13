@@ -22,7 +22,6 @@ const ButtonImg = styled.button`
   &:hover {
     background-color: ${selectedButtonColor};
   }
-
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 `;
 
