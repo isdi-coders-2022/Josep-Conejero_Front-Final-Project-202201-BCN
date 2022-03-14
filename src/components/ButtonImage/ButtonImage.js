@@ -56,21 +56,9 @@ const Image = styled.img`
   padding: 5px;
 `;
 
-const ButtonImage = ({
-  favClass,
-  imageAlt,
-  image,
-  actionOnClick,
-  title,
-  inputColor,
-}) => {
+const ButtonImage = ({ imageAlt, image, actionOnClick, title, inputColor }) => {
   return (
-    <ButtonImg
-      className={favClass}
-      type="button"
-      onClick={actionOnClick}
-      title={title}
-    >
+    <ButtonImg type="button" onClick={actionOnClick} title={title}>
       <ImageBox>
         <Image inputColor={inputColor} alt={imageAlt} src={image}></Image>
       </ImageBox>
