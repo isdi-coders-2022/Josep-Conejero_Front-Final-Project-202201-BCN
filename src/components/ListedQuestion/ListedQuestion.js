@@ -45,6 +45,9 @@ const Text = styled.p`
     padding-left: 2.5px;
     padding-right: 2.5px;
   }
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 const IconLeft = styled.img`
@@ -71,7 +74,8 @@ const IconRight = styled.img`
 
 const fitWidthText = (text) => {
   /*esto se tiene que hacer con gestión del estado de react*/
-  return text.length > 20 ? text.slice(0, 19) + "..." : text;
+  /* return text.length > 20 ? text.slice(0, 19) + "..." : text; */
+  return text;
 };
 
 const ListedQuestion = ({ srcType, srcDelete, questionTitle }) => {
