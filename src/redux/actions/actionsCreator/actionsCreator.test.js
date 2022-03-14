@@ -1,6 +1,6 @@
 import loadQuestionsAction from "./actionsCreator";
 
-describe("Given an loadQuestionsAction function", () => {
+describe("Given a loadQuestionsAction function", () => {
   describe("When it receives a question object", () => {
     test("Then it should return an object with type property and the question object", () => {
       const questions = [
