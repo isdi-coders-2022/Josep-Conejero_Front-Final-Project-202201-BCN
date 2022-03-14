@@ -1,6 +1,6 @@
 import actionTypes from "../actionTypes/actionTypes";
 
-const loadQuestionsAction = (questions) => ({
+export const loadQuestionsAction = (questions) => ({
   type: actionTypes.loadQuestions,
   questions,
 });
