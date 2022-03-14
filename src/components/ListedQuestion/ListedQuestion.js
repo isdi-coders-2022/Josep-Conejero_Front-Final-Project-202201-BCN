@@ -72,20 +72,12 @@ const IconRight = styled.img`
   }
 `;
 
-const fitWidthText = (text) => {
-  /*esto se tiene que hacer con gestión del estado de react*/
-  /* return text.length > 20 ? text.slice(0, 19) + "..." : text; */
-  return text;
-};
-
 const ListedQuestion = ({ srcType, srcDelete, questionTitle }) => {
   return (
     <Container>
       <LeftBox>
         <IconLeft alt="Type of list" src={srcType}></IconLeft>
-        <Text className="ListedQuestionText">
-          {fitWidthText(questionTitle)}
-        </Text>
+        <Text className="ListedQuestionText">{questionTitle}</Text>
       </LeftBox>
       <RightBox>
         <IconRight alt="Remove Icon" src={srcDelete}></IconRight>
