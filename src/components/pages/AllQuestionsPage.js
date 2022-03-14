@@ -7,9 +7,17 @@ import {
   backgroundColorIconAllQuestions,
   alternativeTextIconAllQuestions,
 } from "../../variables";
-import apiPrueba from "../../apiPrueba";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { loadQuestionsListThunk } from "../../redux/thunk/questionsThunk";
 
 const AllQuestionsPage = () => {
+  const questionsList = useSelector((state) => state.questionsList);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(loadQuestionsListThunk);
+  }, [dispatch]);
+
   return (
     <>
       <Header
@@ -18,7 +26,7 @@ const AllQuestionsPage = () => {
         backgroundColor={backgroundColorIconAllQuestions}
         alternativeTextImage={alternativeTextIconAllQuestions}
       ></Header>
-      <MainBody list={apiPrueba} screen={"questions"}></MainBody>
+      <MainBody list={questionsList} screen={"questions"}></MainBody>
       <Footer></Footer>
     </>
   );
