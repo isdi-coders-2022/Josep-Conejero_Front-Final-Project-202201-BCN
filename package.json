@@ -63,7 +63,8 @@
       "!src/components/ThreeDotMenu.js",
       "!src/apiPrueba.js",
       "!src/index.js",
-      "!src/redux/reducers/index.js"
+      "!src/redux/reducers/index.js",
+      "!src/redux/store/store.js"
     ]
   },
   "verbose": true

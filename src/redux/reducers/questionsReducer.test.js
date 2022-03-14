@@ -10,8 +10,8 @@ describe("Given a questionsReducer function", () => {
         id: 8356,
       },
       {
-        question: "pregunta 1",
-        answer: "respuesta 1",
+        question: "pregunta 2",
+        answer: "respuesta 2",
         id: 2154,
       },
     ]);
@@ -22,7 +22,7 @@ describe("Given a questionsReducer function", () => {
       const questions = [];
       const action = { type: "load-questions", questions: arrayOfQuestions };
       const newState = questionsReducer(questions, action);
-      console.log(newState);
+
       expect(newState).toEqual(arrayOfQuestions);
     });
   });
@@ -32,9 +32,9 @@ describe("Given a questionsReducer function", () => {
       const questions = [];
       const action = {};
 
-      const reducer = questionsReducer(questions, action);
+      const expectedReducer = questionsReducer(questions, action);
 
-      expect(reducer).toEqual([]);
+      expect(expectedReducer).toEqual([]);
     });
   });
 });
