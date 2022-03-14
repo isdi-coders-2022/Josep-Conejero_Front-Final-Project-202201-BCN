@@ -1,4 +1,4 @@
-import loadQuestionsAction from "./actionsCreator";
+import { loadQuestionsAction } from "./actionsCreator";
 
 describe("Given a loadQuestionsAction function", () => {
   describe("When it receives a question object", () => {

@@ -1,10 +1,12 @@
-import loadQuestionsAction from "../actions/actionsCreator/actionsCreator";
+import { loadQuestionsAction } from "../actions/actionsCreator/actionsCreator";
 
 export const loadQuestionsListThunk = async (dispatch) => {
   const response = await fetch(process.env.REACT_APP_API_URL);
-  const questionsList = await response.json();
 
-  dispatch(loadQuestionsAction(questionsList.questions));
+  const { questions } = await response.json();
+  if (!response.ok) return;
+
+  dispatch(loadQuestionsAction(questions));
 };
 
 /* export default loadQuestionsListThunk; */
