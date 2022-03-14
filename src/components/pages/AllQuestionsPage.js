@@ -7,7 +7,6 @@ import {
   backgroundColorIconAllQuestions,
   alternativeTextIconAllQuestions,
 } from "../../variables";
-import apiPrueba from "../../apiPrueba";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { loadQuestionsListThunk } from "../../redux/thunk/questionsThunk";
