@@ -5,6 +5,8 @@ import {
   hoveredQuestionTextColor,
   lineBetweenListedQuestionsColor,
 } from "../../variables";
+import { useDispatch } from "react-redux";
+import { deleteQuestionThunk } from "../../redux/thunk/questionsThunk";
 
 const Container = styled.div`
   width: 100%;
@@ -72,7 +74,11 @@ const IconRight = styled.img`
   }
 `;
 
-const ListedQuestion = ({ srcType, srcDelete, questionTitle }) => {
+const ListedQuestion = ({ srcType, srcDelete, questionTitle, questionID }) => {
+  const dispatch = useDispatch();
+
+  const deleteQuestion = () => dispatch(deleteQuestionThunk(questionID));
+
   return (
     <Container>
       <LeftBox>
@@ -80,7 +86,11 @@ const ListedQuestion = ({ srcType, srcDelete, questionTitle }) => {
         <Text className="ListedQuestionText">{questionTitle}</Text>
       </LeftBox>
       <RightBox>
-        <IconRight alt="Remove Icon" src={srcDelete}></IconRight>
+        <IconRight
+          alt="Remove Icon"
+          src={srcDelete}
+          onClick={deleteQuestion}
+        ></IconRight>
       </RightBox>
     </Container>
   );

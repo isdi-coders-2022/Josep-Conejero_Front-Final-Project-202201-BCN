@@ -26,6 +26,10 @@ export const alternativeTextIconAllQuestions = "A shelving with books";
 export const alternativeTextIconAQuestion = "Two screens and a pencil";
 export const alternativeTextIconReview = "A notebook with a pencil";
 
+export const alternativeTextBackIcon = "Arrow backwards";
+export const alternativeTextHomeIcon = "A house with chimney";
+export const alternativeTextAddIcon = "A plus symbol in a circle";
+
 export const textIconLists = "LISTS";
 export const textIconAllQuestions = "ALL QUESTIONS";
 export const textIconAQuestion = "CREATE A QUESTION";

@@ -14,10 +14,10 @@ const Image = styled.img`
   }
 `;
 
-const IconButton = ({ src, actionOnClick }) => {
+const IconButton = ({ src, actionOnClick, alternativeText }) => {
   return (
     <>
-      <Image src={src} onClick={actionOnClick}></Image>
+      <Image src={src} alt={alternativeText} onClick={actionOnClick}></Image>
     </>
   );
 };

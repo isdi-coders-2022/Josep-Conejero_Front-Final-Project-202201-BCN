@@ -6,6 +6,9 @@ import {
   iconBackPath,
   iconHomePath,
   iconAddPath,
+  alternativeTextBackIcon,
+  alternativeTextHomeIcon,
+  alternativeTextAddIcon,
 } from "../../variables";
 
 const Box = styled.div`
@@ -37,14 +40,17 @@ const Footer = () => {
       <Box>
         <IconButton
           src={iconBackPath}
+          alt={alternativeTextBackIcon}
           actionOnClick={actionOnClickBack}
         ></IconButton>
         <IconButton
           src={iconHomePath}
+          alt={alternativeTextHomeIcon}
           actionOnClick={actionOnClickHome}
         ></IconButton>
         <IconButton
           src={iconAddPath}
+          alt={alternativeTextAddIcon}
           actionOnClick={actionOnClickAdd}
         ></IconButton>
       </Box>
