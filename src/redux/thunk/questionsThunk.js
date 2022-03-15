@@ -1,4 +1,7 @@
-import { loadQuestionsAction } from "../actions/actionsCreator/actionsCreator";
+import {
+  loadQuestionsAction,
+  deleteQuestionAction,
+} from "../actions/actionsCreator/actionsCreator";
 
 export const loadQuestionsListThunk = async (dispatch) => {
   const response = await fetch(process.env.REACT_APP_API_URL);
@@ -7,6 +10,15 @@ export const loadQuestionsListThunk = async (dispatch) => {
   if (!response.ok) return;
 
   dispatch(loadQuestionsAction(questions));
+};
+
+export const deleteQuestionThunk = (id) => async (dispatch) => {
+  const response = await fetch(`${process.env.REACT_APP_API_URL}/${id}`, {
+    method: "DELETE",
+  });
+  if (response.ok) {
+    dispatch(deleteQuestionAction(id));
+  }
 };
 
 /* export default loadQuestionsListThunk; */
