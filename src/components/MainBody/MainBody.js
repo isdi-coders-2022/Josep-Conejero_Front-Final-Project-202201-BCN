@@ -40,6 +40,7 @@ const MainBody = ({ list, screen }) => {
                 srcType={icono}
                 srcDelete={iconDeletePath}
                 questionTitle={item.question}
+                questionID={item.id}
                 key={item.id}
               ></ListedQuestion>
             );
