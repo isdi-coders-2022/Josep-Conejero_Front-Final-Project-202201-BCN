@@ -6,6 +6,12 @@ const questionsReducer = (questions = [], action = {}) => {
     case actionTypes.loadQuestions:
       newQuestionsState = [...action.questions];
       break;
+    case actionTypes.deleteQuestion:
+      newQuestionsState = action.idQuestion
+        ? [...questions].filter((question) => question.id !== action.idQuestion)
+        : [...questions];
+
+      break;
     default:
       newQuestionsState = [...questions];
   }
