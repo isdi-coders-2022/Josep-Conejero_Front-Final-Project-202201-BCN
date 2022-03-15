@@ -37,4 +37,72 @@ describe("Given a questionsReducer function", () => {
       expect(expectedReducer).toEqual([]);
     });
   });
+
+  describe("When it's called with action type deleteQuestion and passed a matching id", () => {
+    test("Then it should return a new state without the question with matching id", () => {
+      const questions = [
+        { id: 1, question: "Pregunta 1" },
+        { id: 2, question: "Pregunta 2" },
+      ];
+      const idQuestionToDelete = 1;
+      const action = {
+        type: "delete-question",
+        idQuestion: idQuestionToDelete,
+      };
+      const newState = questionsReducer(questions, action);
+      const expectedNewState = [{ id: 2, question: "Pregunta 2" }];
+
+      expect(newState).toEqual(expectedNewState);
+    });
+  });
+
+  describe("When it's called with action type deleteQuestion and passed a non matching id", () => {
+    test("Then it should return a new state equal to currentstate", () => {
+      const questions = [
+        { id: 1, question: "Pregunta 1" },
+        { id: 2, question: "Pregunta 2" },
+      ];
+      const idQuestionToDelete = 3;
+      const action = {
+        type: "delete-question",
+        idQuestion: idQuestionToDelete,
+      };
+      const newState = questionsReducer(questions, action);
+      const expectedNewState = [...questions];
+
+      expect(newState).toEqual(expectedNewState);
+    });
+  });
+
+  describe("When it's called with action type deleteQuestion and passed no id", () => {
+    test("Then it should return a new state equal to currentstate", () => {
+      const questions = [
+        { id: 1, question: "Pregunta 1" },
+        { id: 2, question: "Pregunta 2" },
+      ];
+
+      const action = {
+        type: "delete-question",
+      };
+      const newState = questionsReducer(questions, action);
+      const expectedNewState = [...questions];
+
+      expect(newState).toEqual(expectedNewState);
+    });
+  });
+
+  describe("When it's called with action type deleteQuestion and passed no question", () => {
+    test("Then it should return a new state with empty questions", () => {
+      const questions = [];
+      const idQuestionToDelete = 1;
+      const action = {
+        type: "delete-question",
+        idQuestion: idQuestionToDelete,
+      };
+      const newState = questionsReducer(questions, action);
+      const expectedNewState = [];
+
+      expect(newState).toEqual(expectedNewState);
+    });
+  });
 });
