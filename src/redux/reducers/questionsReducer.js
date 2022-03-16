@@ -10,7 +10,11 @@ const questionsReducer = (questions = [], action = {}) => {
       newQuestionsState = action.idQuestion
         ? [...questions].filter((question) => question.id !== action.idQuestion)
         : [...questions];
-
+      break;
+    case actionTypes.addQuestion:
+      newQuestionsState = action.question
+        ? [...questions, { ...action.question }]
+        : [...questions];
       break;
     default:
       newQuestionsState = [...questions];

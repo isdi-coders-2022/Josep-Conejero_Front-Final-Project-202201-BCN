@@ -1,14 +1,26 @@
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-import MainBody from "../MainBody/MainBody";
 import {
   iconAQuestionPath,
   textIconAQuestion,
   backgroundColorIconAQuestion,
   alternativeTextIconAQuestion,
 } from "../../variables";
+import MainQuestionBody from "../MainQuestionBody/MainQuestionBody";
+import { useLocation } from "react-router-dom";
 
 const QuestionPage = () => {
+  const location = useLocation();
+  const questionID = location.state.ID;
+
+  let questionText = questionID;
+  let answerText = questionID;
+
+  if (questionID) {
+    questionText = location.state.question;
+    answerText = location.state.answer;
+  }
+
   return (
     <>
       <Header
@@ -17,8 +29,11 @@ const QuestionPage = () => {
         backgroundColor={backgroundColorIconAQuestion}
         alternativeTextImage={alternativeTextIconAQuestion}
       ></Header>
-      <MainBody></MainBody>
-      <Footer></Footer>
+      <MainQuestionBody
+        questionText={questionText}
+        answerText={answerText}
+      ></MainQuestionBody>
+      <Footer hiddenAdd={true}></Footer>
     </>
   );
 };

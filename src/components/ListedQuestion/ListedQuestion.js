@@ -7,6 +7,7 @@ import {
 } from "../../variables";
 import { useDispatch } from "react-redux";
 import { deleteQuestionThunk } from "../../redux/thunk/questionsThunk";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   width: 100%;
@@ -76,12 +77,20 @@ const IconRight = styled.img`
 
 const ListedQuestion = ({ srcType, srcDelete, questionTitle, questionID }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const deleteQuestion = () => dispatch(deleteQuestionThunk(questionID));
 
+  const editQuestion = () => {
+    /* navigate(`/question/${questionID}`); */
+    navigate(`/question`, {
+      state: { ID: questionID, question: "pregunta 1", answer: "respuesta 2" },
+    });
+  };
+
   return (
     <Container>
-      <LeftBox>
+      <LeftBox onClick={editQuestion}>
         <IconLeft alt="Type of list" src={srcType}></IconLeft>
         <Text className="ListedQuestionText">{questionTitle}</Text>
       </LeftBox>

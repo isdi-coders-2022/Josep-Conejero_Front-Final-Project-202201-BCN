@@ -23,16 +23,16 @@ const Box = styled.div`
   bottom: 0;
 `;
 
-const Footer = () => {
+const Footer = ({ hiddenAdd }) => {
   const navigate = useNavigate();
   const actionOnClickBack = () => {
-    navigate("/home");
+    navigate(-1);
   };
   const actionOnClickHome = () => {
     navigate("/home");
   };
   const actionOnClickAdd = () => {
-    navigate("/home");
+    navigate("/question");
   };
 
   return (
@@ -42,16 +42,19 @@ const Footer = () => {
           src={iconBackPath}
           alternativeText={alternativeTextBackIcon}
           actionOnClick={actionOnClickBack}
+          hidden={false}
         ></IconButton>
         <IconButton
           src={iconHomePath}
           alternativeText={alternativeTextHomeIcon}
           actionOnClick={actionOnClickHome}
+          hidden={false}
         ></IconButton>
         <IconButton
           src={iconAddPath}
           alternativeText={alternativeTextAddIcon}
           actionOnClick={actionOnClickAdd}
+          hidden={hiddenAdd}
         ></IconButton>
       </Box>
     </>

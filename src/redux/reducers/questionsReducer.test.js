@@ -105,4 +105,43 @@ describe("Given a questionsReducer function", () => {
       expect(newState).toEqual(expectedNewState);
     });
   });
+
+  describe("When it's called with action type addQuestion and passed a question", () => {
+    test("Then it should return a new state with the question added", () => {
+      const questions = [
+        { id: 1, question: "Pregunta 1" },
+        { id: 2, question: "Pregunta 2" },
+      ];
+      const newQuestion = { id: 3, question: "Pregunta 3" };
+      const action = {
+        type: "add-question",
+        question: newQuestion,
+      };
+      const newState = questionsReducer(questions, action);
+      const expectedNewState = [
+        { id: 1, question: "Pregunta 1" },
+        { id: 2, question: "Pregunta 2" },
+        { id: 3, question: "Pregunta 3" },
+      ];
+
+      expect(newState).toEqual(expectedNewState);
+    });
+  });
+
+  describe("When it's called with action type addQuestion and passed no question", () => {
+    test("Then it should return a new state equal to currentstate", () => {
+      const questions = [
+        { id: 1, question: "Pregunta 1" },
+        { id: 2, question: "Pregunta 2" },
+      ];
+
+      const action = {
+        type: "add-question",
+      };
+      const newState = questionsReducer(questions, action);
+      const expectedNewState = [...questions];
+
+      expect(newState).toEqual(expectedNewState);
+    });
+  });
 });

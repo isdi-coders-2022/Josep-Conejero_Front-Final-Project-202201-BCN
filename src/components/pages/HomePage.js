@@ -75,7 +75,7 @@ const HomePage = () => {
     imageAlt: alternativeTextIconAQuestion,
     image: iconAQuestionPath,
     actionOnClick: () => {
-      navigate("/question");
+      navigate("/question", { state: { ID: 0 } });
     },
     title: textIconAQuestion,
     bgcolor: backgroundColorIconAQuestion,
