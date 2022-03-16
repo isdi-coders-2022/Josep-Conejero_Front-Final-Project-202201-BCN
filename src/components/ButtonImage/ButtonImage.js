@@ -70,7 +70,7 @@ const ButtonImage = ({ imageAlt, image, actionOnClick, title, inputColor }) => {
 ButtonImage.propTypes = {
   image: propTypes.string,
   imageAlt: propTypes.string,
-  onclick: propTypes.func,
+  onClick: propTypes.func,
 };
 
 export default ButtonImage;

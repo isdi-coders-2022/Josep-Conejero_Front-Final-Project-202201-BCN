@@ -26,7 +26,7 @@ const AllQuestionsPage = () => {
         backgroundColor={backgroundColorIconAllQuestions}
         alternativeTextImage={alternativeTextIconAllQuestions}
       ></Header>
-      <MainBody list={questionsList} screen={"questions"}></MainBody>
+      <MainBody list={questionsList} screenType={"questions"}></MainBody>
       <Footer></Footer>
     </>
   );

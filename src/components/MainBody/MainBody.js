@@ -25,16 +25,16 @@ const VoidBox = styled.div`
   background-color: ${footerBackgroundColor};
 `;
 
-const MainBody = ({ list, screen }) => {
+const MainBody = ({ list, screenType }) => {
   const questionsList = list;
   const icono = iconLittleQuestionPath;
   return (
     <>
       <VoidBox></VoidBox>
       <Box>
-        {screen === "questions" &&
+        {screenType === "questions" &&
           questionsList.length > 0 &&
-          questionsList.map((item, index) => {
+          questionsList.map((item) => {
             return (
               <ListedQuestion
                 srcType={icono}

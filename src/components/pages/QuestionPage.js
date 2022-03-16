@@ -5,7 +5,7 @@ import {
   iconAQuestionPath,
   textIconAQuestion,
   backgroundColorIconAQuestion,
-  backgroundColorIconReview,
+  alternativeTextIconAQuestion,
 } from "../../variables";
 
 const QuestionPage = () => {
@@ -15,7 +15,7 @@ const QuestionPage = () => {
         title={textIconAQuestion}
         picture={iconAQuestionPath}
         backgroundColor={backgroundColorIconAQuestion}
-        alternativeTextImage={backgroundColorIconReview}
+        alternativeTextImage={alternativeTextIconAQuestion}
       ></Header>
       <MainBody></MainBody>
       <Footer></Footer>

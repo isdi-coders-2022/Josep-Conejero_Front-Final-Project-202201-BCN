@@ -2,6 +2,7 @@ import {
   loadQuestionsAction,
   deleteQuestionAction,
 } from "../actions/actionsCreator/actionsCreator";
+/* import axios from "axios"; */
 
 export const loadQuestionsListThunk = async (dispatch) => {
   const response = await fetch(process.env.REACT_APP_API_URL);
@@ -11,6 +12,17 @@ export const loadQuestionsListThunk = async (dispatch) => {
 
   dispatch(loadQuestionsAction(questions));
 };
+
+/* export const loadQuestionsListThunk = async (dispatch) => {
+  try {
+    const response = await axios.get(process.env.REACT_APP_API_URL);
+    const { questions } = await response.json();
+    if (!response.ok) return;
+    dispatch(loadQuestionsAction(questions));
+  } catch (e) {
+    return [];
+  }
+}; */
 
 export const deleteQuestionThunk = (id) => async (dispatch) => {
   const response = await fetch(`${process.env.REACT_APP_API_URL}/${id}`, {

@@ -21,10 +21,6 @@ describe("Given Header component", () => {
         ></Header>
       );
 
-      /* const foundAlternativeText = screen.queryByAltText(
-        alternativeTextIconAllQuestions
-      ); */
-
       const foundAlternativeText = screen.queryByAltText(
         "A shelving with books"
       );
