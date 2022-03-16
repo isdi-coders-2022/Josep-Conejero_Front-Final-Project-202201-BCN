@@ -1,31 +1,31 @@
-/* import { render, screen } from "@testing-library/react";
-import { Router } from "react-router-dom";
-import HomePage from "./HomePage"; */
+import { render, screen } from "@testing-library/react";
+import HomePage from "./HomePage";
+import { BrowserRouter } from "react-router-dom";
 
 describe("Given a component HomePage", () => {
   describe("When it's rendered", () => {
-    test("it should render an article", () => {
-      /* render(
-        <Router>
+    test("it should render 5 images", () => {
+      render(
+        <BrowserRouter>
           <HomePage></HomePage>
-        </Router>
+        </BrowserRouter>
       );
 
-      const logo = screen.getByRole("img");
+      const logo = screen.getAllByRole("img");
 
-      expect(logo).toBeInTheDocument(); */
+      expect(logo.length).toBe(5);
     });
 
-    test("it should render an image", () => {
-      /*  render(
-        <Router>
+    test("it should render a title", () => {
+      render(
+        <BrowserRouter>
           <HomePage></HomePage>
-        </Router>
+        </BrowserRouter>
       );
 
-      const title = screen.getByRole("h1");
+      const title = screen.getByAltText("Application Icon. Screen and books.");
 
-      expect(title).toBeInTheDocument(); */
+      expect(title).toBeInTheDocument();
     });
   });
 });

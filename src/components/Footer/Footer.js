@@ -40,17 +40,17 @@ const Footer = () => {
       <Box>
         <IconButton
           src={iconBackPath}
-          alt={alternativeTextBackIcon}
+          alternativeText={alternativeTextBackIcon}
           actionOnClick={actionOnClickBack}
         ></IconButton>
         <IconButton
           src={iconHomePath}
-          alt={alternativeTextHomeIcon}
+          alternativeText={alternativeTextHomeIcon}
           actionOnClick={actionOnClickHome}
         ></IconButton>
         <IconButton
           src={iconAddPath}
-          alt={alternativeTextAddIcon}
+          alternativeText={alternativeTextAddIcon}
           actionOnClick={actionOnClickAdd}
         ></IconButton>
       </Box>
