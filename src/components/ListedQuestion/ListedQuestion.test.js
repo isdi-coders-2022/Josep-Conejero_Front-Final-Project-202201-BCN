@@ -19,23 +19,6 @@ describe("Given a ListedQuestion component", () => {
       /* const images = screen.queryAllByRole("img");
 
       expect(images.length).toBe(2); */
-      /* render(
-        <ListedQuestion
-          title={textIconAllQuestions}
-          picture={iconAllQuestionsPath}
-          backgroundColor={backgroundColorIconAllQuestions}
-          alternativeTextImage={alternativeTextIconAllQuestions}
-        ></ListedQuestion>
-      );
- */
-      /* const foundAlternativeText = screen.queryByAltText(
-        alternativeTextIconAllQuestions
-      ); */
-      /* const foundAlternativeText = screen.queryByAltText(
-        "A shelving with books"
-      );
-
-      expect(foundAlternativeText).toBeInTheDocument(); */
     });
   });
 });
