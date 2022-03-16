@@ -2,7 +2,6 @@ import { rest } from "msw";
 
 export const handlers = [
   rest.get(process.env.REACT_APP_API_URL, (req, res, ctx) => {
-    console.log("hola");
     return res(
       ctx.status(200),
       ctx.json({
@@ -27,4 +26,11 @@ export const handlers = [
       })
     );
   }),
+
+  rest.delete(
+    `${process.env.REACT_APP_API_URL}/6227b67fc624c56733927e2c`,
+    (req, res, ctx) => {
+      return res(ctx.status(200));
+    }
+  ),
 ];
