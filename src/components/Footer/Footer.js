@@ -26,7 +26,7 @@ const Box = styled.div`
 const Footer = () => {
   const navigate = useNavigate();
   const actionOnClickBack = () => {
-    navigate("/home");
+    navigate(-1);
   };
   const actionOnClickHome = () => {
     navigate("/home");

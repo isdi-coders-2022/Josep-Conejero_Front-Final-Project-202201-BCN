@@ -9,6 +9,13 @@ import {
   alternativeTextHomeIcon,
   alternativeTextAddIcon,
 } from "../../variables";
+import { server } from "../../mocks/server";
+
+beforeAll(() => server.listen());
+
+afterEach(() => server.resetHandlers());
+
+afterAll(() => server.close());
 
 describe("Given a component AllQuestionsPage", () => {
   describe("When it's rendered", () => {
@@ -51,6 +58,22 @@ describe("Given a component AllQuestionsPage", () => {
       expect(expectedAlternativeTextBackIcon).toBeInTheDocument();
       expect(expectedAlternativeTextHomeIcon).toBeInTheDocument();
       expect(expectedAlternativeTextAddIcon).toBeInTheDocument();
+    });
+  });
+
+  describe("When it's rendered and the API has 2 questions", () => {
+    test.only("it should render the 2 questions", async () => {
+      render(
+        <BrowserRouter>
+          <Provider store={store}>
+            <AllQuestionsPage></AllQuestionsPage>
+          </Provider>
+        </BrowserRouter>
+      );
+
+      const text = await screen.findByText("Question 1");
+
+      expect(text).toBeInTheDocument();
     });
   });
 });

@@ -7,6 +7,7 @@ import {
   backgroundColorIconAQuestion,
   alternativeTextIconAQuestion,
 } from "../../variables";
+import MainQuestionBody from "../MainQuestionBody/MainQuestionBody";
 
 const QuestionPage = () => {
   return (
@@ -17,7 +18,7 @@ const QuestionPage = () => {
         backgroundColor={backgroundColorIconAQuestion}
         alternativeTextImage={alternativeTextIconAQuestion}
       ></Header>
-      <MainBody></MainBody>
+      <MainQuestionBody></MainQuestionBody>
       <Footer></Footer>
     </>
   );
