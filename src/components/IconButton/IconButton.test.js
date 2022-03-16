@@ -17,23 +17,6 @@ describe("Given a IconButton component", () => {
       const image = screen.queryByRole("img");
 
       expect(image).toBeInTheDocument();
-      /* render(
-        <ListedQuestion
-          title={textIconAllQuestions}
-          picture={iconAllQuestionsPath}
-          backgroundColor={backgroundColorIconAllQuestions}
-          alternativeTextImage={alternativeTextIconAllQuestions}
-        ></ListedQuestion>
-      );
- */
-      /* const foundAlternativeText = screen.queryByAltText(
-        alternativeTextIconAllQuestions
-      ); */
-      /* const foundAlternativeText = screen.queryByAltText(
-        "A shelving with books"
-      );
-
-      expect(foundAlternativeText).toBeInTheDocument(); */
     });
   });
 });
