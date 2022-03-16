@@ -1,7 +1,7 @@
-import { render, screen } from "@testing-library/react";
+/* import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
-import MainQuestionBody from "./MainQuestionBody";
+import MainQuestionBody from "./MainQuestionBody"; */
 
 describe("Given a MainQuestionBody component", () => {
   describe("When it's rendered with a list and screen='questions'", () => {
