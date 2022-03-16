@@ -62,7 +62,7 @@ describe("Given a component AllQuestionsPage", () => {
   });
 
   describe("When it's rendered and the API has 2 questions", () => {
-    test.only("it should render the 2 questions", async () => {
+    test("it should render the 2 questions", async () => {
       render(
         <BrowserRouter>
           <Provider store={store}>
