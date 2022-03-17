@@ -180,7 +180,7 @@ const MainQuestionBody = ({ questionText, answerText, idQuestion }) => {
           <QuestionInput
             onChange={handleChange}
             name="question"
-            value={questionText}
+            defaultvalue={questionText}
           ></QuestionInput>
         </QuestionBox>
         <AnswerBox>
@@ -188,7 +188,7 @@ const MainQuestionBody = ({ questionText, answerText, idQuestion }) => {
           <AnswerInput
             onChange={handleChange}
             name="answer"
-            value={answerText}
+            defaultvalue={answerText}
           ></AnswerInput>
         </AnswerBox>
         <Buttons>
