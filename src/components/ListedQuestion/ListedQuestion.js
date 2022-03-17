@@ -82,9 +82,8 @@ const ListedQuestion = ({ srcType, srcDelete, questionTitle, questionID }) => {
   const deleteQuestion = () => dispatch(deleteQuestionThunk(questionID));
 
   const editQuestion = () => {
-    /* navigate(`/question/${questionID}`); */
     navigate(`/question`, {
-      state: { ID: questionID, question: "pregunta 1", answer: "respuesta 2" },
+      state: { ID: questionID },
     });
   };
 
