@@ -29,16 +29,20 @@ describe("Given a loadQuestionsAction function", () => {
 });
 
 describe("Given a loadOneQuestionAction function", () => {
-  describe("When it receives an id", () => {
-    test("Then it should return an object with type property and an id", () => {
-      const idQuestionToLoad = 1;
+  describe("When it receives a question", () => {
+    test("Then it should return an object with type property and a question", () => {
+      const questionToLoad = {
+        id: 1,
+        question: "Pregunta 1",
+        answer: "Respuesta 1",
+      };
 
       const expectedOutput = {
         type: "load-one-question",
-        idQuestion: idQuestionToLoad,
+        question: questionToLoad,
       };
 
-      const expectedAction = loadOneQuestionAction(idQuestionToLoad);
+      const expectedAction = loadOneQuestionAction(questionToLoad);
 
       expect(expectedAction).toEqual(expectedOutput);
     });
@@ -79,16 +83,20 @@ describe("Given an addQuestionAction function", () => {
 });
 
 describe("Given an updateQuestionAction function", () => {
-  describe("When it receives an id", () => {
-    test("Then it should return an object with type property and an id", () => {
-      const idQuestionToUpadate = 1;
+  describe("When it receives a question", () => {
+    test("Then it should return an object with type property and a question", () => {
+      const questionToUpdate = {
+        id: 1,
+        question: "pregunta 1",
+        answer: "respuesta 1",
+      };
 
       const expectedOutput = {
         type: "update-question",
-        idQuestion: idQuestionToUpadate,
+        question: questionToUpdate,
       };
 
-      const expectedAction = updateQuestionAction(idQuestionToUpadate);
+      const expectedAction = updateQuestionAction(questionToUpdate);
 
       expect(expectedAction).toEqual(expectedOutput);
     });
