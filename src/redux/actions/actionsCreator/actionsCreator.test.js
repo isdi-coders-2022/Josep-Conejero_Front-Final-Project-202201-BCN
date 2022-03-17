@@ -3,6 +3,7 @@ import {
   deleteQuestionAction,
   addQuestionAction,
   updateQuestionAction,
+  loadOneQuestionAction,
 } from "./actionsCreator";
 
 describe("Given a loadQuestionsAction function", () => {
@@ -21,6 +22,27 @@ describe("Given a loadQuestionsAction function", () => {
 
       const expectedOutput = { type: "load-questions", questions: questions };
       const expectedAction = loadQuestionsAction(questions);
+
+      expect(expectedAction).toEqual(expectedOutput);
+    });
+  });
+});
+
+describe("Given a loadOneQuestionAction function", () => {
+  describe("When it receives a question", () => {
+    test("Then it should return an object with type property and a question", () => {
+      const questionToLoad = {
+        id: 1,
+        question: "Pregunta 1",
+        answer: "Respuesta 1",
+      };
+
+      const expectedOutput = {
+        type: "load-one-question",
+        question: questionToLoad,
+      };
+
+      const expectedAction = loadOneQuestionAction(questionToLoad);
 
       expect(expectedAction).toEqual(expectedOutput);
     });
@@ -61,16 +83,20 @@ describe("Given an addQuestionAction function", () => {
 });
 
 describe("Given an updateQuestionAction function", () => {
-  describe("When it receives an id", () => {
-    test("Then it should return an object with type property and an id", () => {
-      const idQuestionToRemoveMocked = 1;
+  describe("When it receives a question", () => {
+    test("Then it should return an object with type property and a question", () => {
+      const questionToUpdate = {
+        id: 1,
+        question: "pregunta 1",
+        answer: "respuesta 1",
+      };
 
       const expectedOutput = {
         type: "update-question",
-        idQuestion: idQuestionToRemoveMocked,
+        question: questionToUpdate,
       };
 
-      const expectedAction = updateQuestionAction(idQuestionToRemoveMocked);
+      const expectedAction = updateQuestionAction(questionToUpdate);
 
       expect(expectedAction).toEqual(expectedOutput);
     });

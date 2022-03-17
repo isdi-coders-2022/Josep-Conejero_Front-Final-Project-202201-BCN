@@ -13,13 +13,13 @@ const QuestionPage = () => {
   const location = useLocation();
   const questionID = location.state.ID;
 
-  let questionText = questionID;
+  /*  let questionText = questionID;
   let answerText = questionID;
 
   if (questionID) {
     questionText = location.state.question;
     answerText = location.state.answer;
-  }
+  } */
 
   return (
     <>
@@ -29,13 +29,13 @@ const QuestionPage = () => {
         backgroundColor={backgroundColorIconAQuestion}
         alternativeTextImage={alternativeTextIconAQuestion}
       ></Header>
-      <MainQuestionBody
-        questionText={questionText}
-        answerText={answerText}
-      ></MainQuestionBody>
+      <MainQuestionBody idQuestion={questionID}></MainQuestionBody>
       <Footer hiddenAdd={true}></Footer>
     </>
   );
 };
 
 export default QuestionPage;
+
+/*  questionText={questionText}
+        answerText={answerText} */

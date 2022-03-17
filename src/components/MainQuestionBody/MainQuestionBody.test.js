@@ -20,7 +20,7 @@ const fixedScreenType = "questions";
 render(
 <MainBody screenType={fixedScreenType} list={questions}></MainBody>
 );
-debugger;
+
 const foundText = screen.queryByText("Pregunta 1");
 expect(foundText).toBeInTheDocument();*/
     });

@@ -32,7 +32,7 @@ const Footer = ({ hiddenAdd }) => {
     navigate("/home");
   };
   const actionOnClickAdd = () => {
-    navigate("/question");
+    navigate("/question", { state: { ID: 0 } });
   };
 
   return (

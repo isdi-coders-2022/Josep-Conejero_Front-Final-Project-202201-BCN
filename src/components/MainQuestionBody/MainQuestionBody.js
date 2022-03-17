@@ -4,10 +4,16 @@ import {
   /* iconDeletePath, */
   footerBackgroundColor,
   buttonColor,
+  disabledColor,
 } from "../../variables";
-import { useDispatch } from "react-redux";
-import { useState } from "react";
-import { addQuestionThunk } from "../../redux/thunk/questionsThunk";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import {
+  addQuestionThunk,
+  loadOneQuestionThunk,
+  updateQuestionThunk,
+} from "../../redux/thunk/questionsThunk";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   width: 100%;
@@ -25,7 +31,7 @@ const QuestionBox = styled.div`
   height: 15vh;
   border-radius: 10px;
   padding: 5px;
-  border: solid black 1px;
+  border: solid ${disabledColor} 2px;
   margin-top: 25px;
   margin-bottom: 10px;
   display: flex;
@@ -38,7 +44,7 @@ const AnswerBox = styled.div`
   height: 45vh;
   border-radius: 10px;
   padding: 5px;
-  border: solid black 1px;
+  border: solid ${disabledColor} 2px;
   margin-top: 10px;
   margin-bottom: 10px;
   display: flex;
@@ -109,6 +115,19 @@ const SaveButton = styled.button`
   }
 `;
 
+const DisabledSaveButton = styled.button`
+  background-color: ${disabledColor};
+  border: 0px;
+  height: 6vh;
+  font-size: 20px;
+  color: white;
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: 7px;
+  margin-right: 7px;
+`;
+
 const QuestionInput = styled.textarea`
   /* background-color: green; */
   width: 100%;
@@ -137,39 +156,69 @@ const LabelText = styled.p`
   margin: 0;
   padding-top: 0;
   padding-bottom: 0;
-  background-color: white;
+  background-color: ${buttonColor};
+  color: white;
   padding-left: 10px;
   padding-right: 10px;
-  border: solid black 1px;
+  border: solid ${buttonColor} 1px;
   border-radius: 10px;
   position: relative;
   top: -17px;
 `;
 
-const MainQuestionBody = ({ questionText, answerText, idQuestion }) => {
+const MainQuestionBody = ({ idQuestion }) => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const initialFormData = {
-    question: questionText ? questionText : "",
-    answer: answerText ? answerText : "",
+    id: idQuestion,
+    question: "",
+    answer: "",
   };
 
   const [formData, setFormData] = useState(initialFormData);
 
-  const isFilled = formData.questionText !== "" && formData.answerText !== "";
+  const isFilled = formData.question !== "" && formData.answer !== "";
 
   const handleChange = (event) => {
     setFormData({
       ...formData,
-      [event.target.name]: event.target.value.trim(),
+      [event.target.name]: event.target.value,
     });
   };
 
   const addQuestionHandler = (event) => {
     event.preventDefault();
     if (isFilled) {
-      dispatch(addQuestionThunk(formData));
+      if (!idQuestion) {
+        dispatch(addQuestionThunk(formData));
+      } else {
+        dispatch(updateQuestionThunk(formData));
+      }
+      setFormData(initialFormData);
+      navigate(-1);
     }
   };
+
+  const question = useSelector((state) => {
+    return state.oneQuestion;
+  });
+
+  useEffect(() => {
+    if (idQuestion) {
+      dispatch(loadOneQuestionThunk(idQuestion));
+    }
+  }, [dispatch, idQuestion]);
+
+  useEffect(() => {
+    if (idQuestion) {
+      setFormData({
+        id: question.id,
+        question: question.question,
+        answer: question.answer,
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [question]);
 
   return (
     <>
@@ -180,7 +229,8 @@ const MainQuestionBody = ({ questionText, answerText, idQuestion }) => {
           <QuestionInput
             onChange={handleChange}
             name="question"
-            value={questionText}
+            type="text"
+            value={formData.question}
           ></QuestionInput>
         </QuestionBox>
         <AnswerBox>
@@ -188,12 +238,16 @@ const MainQuestionBody = ({ questionText, answerText, idQuestion }) => {
           <AnswerInput
             onChange={handleChange}
             name="answer"
-            value={answerText}
+            type="text"
+            value={formData.answer}
           ></AnswerInput>
         </AnswerBox>
         <Buttons>
           <AddRemoveButton>ADD/REMOVE FROM LIST</AddRemoveButton>
-          <SaveButton onClick={addQuestionHandler}>SAVE</SaveButton>
+          {isFilled && (
+            <SaveButton onClick={addQuestionHandler}>SAVE</SaveButton>
+          )}
+          {!isFilled && <DisabledSaveButton>SAVE</DisabledSaveButton>}
         </Buttons>
       </Container>
     </>
