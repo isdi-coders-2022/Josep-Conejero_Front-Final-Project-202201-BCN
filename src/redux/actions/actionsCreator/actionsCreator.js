@@ -5,7 +5,7 @@ export const loadQuestionsAction = (questions) => ({
   questions,
 });
 
-export const loadQuestionAction = (idQuestion) => ({
+export const loadOneQuestionAction = (idQuestion) => ({
   type: actionTypes.loadOneQuestion,
   idQuestion,
 });

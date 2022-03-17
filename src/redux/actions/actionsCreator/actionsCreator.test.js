@@ -3,6 +3,7 @@ import {
   deleteQuestionAction,
   addQuestionAction,
   updateQuestionAction,
+  loadOneQuestionAction,
 } from "./actionsCreator";
 
 describe("Given a loadQuestionsAction function", () => {
@@ -21,6 +22,23 @@ describe("Given a loadQuestionsAction function", () => {
 
       const expectedOutput = { type: "load-questions", questions: questions };
       const expectedAction = loadQuestionsAction(questions);
+
+      expect(expectedAction).toEqual(expectedOutput);
+    });
+  });
+});
+
+describe("Given a loadOneQuestionAction function", () => {
+  describe("When it receives an id", () => {
+    test("Then it should return an object with type property and an id", () => {
+      const idQuestionToLoad = 1;
+
+      const expectedOutput = {
+        type: "load-one-question",
+        idQuestion: idQuestionToLoad,
+      };
+
+      const expectedAction = loadOneQuestionAction(idQuestionToLoad);
 
       expect(expectedAction).toEqual(expectedOutput);
     });
@@ -63,14 +81,14 @@ describe("Given an addQuestionAction function", () => {
 describe("Given an updateQuestionAction function", () => {
   describe("When it receives an id", () => {
     test("Then it should return an object with type property and an id", () => {
-      const idQuestionToRemoveMocked = 1;
+      const idQuestionToUpadate = 1;
 
       const expectedOutput = {
         type: "update-question",
-        idQuestion: idQuestionToRemoveMocked,
+        idQuestion: idQuestionToUpadate,
       };
 
-      const expectedAction = updateQuestionAction(idQuestionToRemoveMocked);
+      const expectedAction = updateQuestionAction(idQuestionToUpadate);
 
       expect(expectedAction).toEqual(expectedOutput);
     });
