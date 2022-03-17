@@ -13,14 +13,6 @@ const QuestionPage = () => {
   const location = useLocation();
   const questionID = location.state.ID;
 
-  /*  let questionText = questionID;
-  let answerText = questionID;
-
-  if (questionID) {
-    questionText = location.state.question;
-    answerText = location.state.answer;
-  } */
-
   return (
     <>
       <Header
@@ -36,6 +28,3 @@ const QuestionPage = () => {
 };
 
 export default QuestionPage;
-
-/*  questionText={questionText}
-        answerText={answerText} */
