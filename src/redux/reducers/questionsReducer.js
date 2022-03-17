@@ -16,6 +16,24 @@ const questionsReducer = (questions = [], action = {}) => {
         ? [...questions, { ...action.question }]
         : [...questions];
       break;
+    /* case actionTypes.loadOneQuestion:
+      newQuestionsState = { ...action.question };
+      break; */
+    case actionTypes.updateQuestion:
+      /*  newQuestionsState = action.idQuestion
+        ? [...questions].filter((question) => question.id !== action.idQuestion)
+        : [...questions]; */
+
+      newQuestionsState = questions.map((question) =>
+        question.id === action.question.id
+          ? {
+              ...action.question,
+              /* ...question, */
+              /* notdone: !todo.notdone, */
+            }
+          : { ...question }
+      );
+      break;
     default:
       newQuestionsState = [...questions];
   }
