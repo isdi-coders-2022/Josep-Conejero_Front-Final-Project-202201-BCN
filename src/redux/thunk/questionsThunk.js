@@ -3,6 +3,7 @@ import {
   deleteQuestionAction,
   addQuestionAction,
   loadOneQuestionAction,
+  updateQuestionAction,
 } from "../actions/actionsCreator/actionsCreator";
 
 export const loadQuestionsListThunk = async (dispatch) => {
@@ -43,4 +44,20 @@ export const addQuestionThunk = (question) => async (dispatch) => {
   const newQuestion = await response.json();
   if (!response.ok) return;
   dispatch(addQuestionAction(newQuestion));
+};
+
+export const updateQuestionThunk = (question) => async (dispatch) => {
+  const response = await fetch(
+    `${process.env.REACT_APP_API_URL}/${question.id}`,
+    {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(question),
+    }
+  );
+  const modifiedQuestion = await response.json();
+  if (!response.ok) return;
+  dispatch(updateQuestionAction(modifiedQuestion));
 };
