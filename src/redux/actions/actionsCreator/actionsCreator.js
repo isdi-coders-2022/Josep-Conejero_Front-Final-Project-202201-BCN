@@ -5,6 +5,11 @@ export const loadQuestionsAction = (questions) => ({
   questions,
 });
 
+export const loadQuestionAction = (idQuestion) => ({
+  type: actionTypes.loadOneQuestion,
+  idQuestion,
+});
+
 export const deleteQuestionAction = (idQuestion) => ({
   type: actionTypes.deleteQuestion,
   idQuestion,
