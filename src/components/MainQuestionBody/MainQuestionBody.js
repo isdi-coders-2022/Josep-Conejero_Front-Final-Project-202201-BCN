@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import {
   mainBackgroundColor,
-  /* iconDeletePath, */
   footerBackgroundColor,
   buttonColor,
   disabledColor,
