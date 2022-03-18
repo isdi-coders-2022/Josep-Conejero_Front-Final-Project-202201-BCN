@@ -5,14 +5,13 @@ import {
   buttonColor,
   disabledColor,
 } from "../../variables";
-/* import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import {
-  addQuestionThunk,
-  loadOneQuestionThunk,
-  updateQuestionThunk,
-} from "../../redux/thunk/questionsThunk";
-import { useNavigate } from "react-router-dom"; */
+  addQuestionsListThunk,
+  loadOneQuestionsListThunk,
+} from "../../redux/thunk/questionsListsThunk";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   width: 100%;
@@ -143,17 +142,17 @@ const LabelText = styled.p`
 `;
 
 const MainCreateListBody = () => {
-  /* const navigate = useNavigate();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const initialFormData = {
-    id: idQuestion,
-    question: "",
-    answer: "",
+    /* id: idQuestion, */
+    listName: "",
+    listSubject: "",
   };
 
   const [formData, setFormData] = useState(initialFormData);
 
-  const isFilled = formData.question !== "" && formData.answer !== "";
+  const isFilled = formData.listName !== "" && formData.listSubject !== "";
 
   const handleChange = (event) => {
     setFormData({
@@ -162,20 +161,20 @@ const MainCreateListBody = () => {
     });
   };
 
-  const addQuestionHandler = (event) => {
+  const addQuestionsListHandler = (event) => {
     event.preventDefault();
     if (isFilled) {
-      if (!idQuestion) {
-        dispatch(addQuestionThunk(formData));
-      } else {
+      /*  if (!idQuestion) { */
+      dispatch(addQuestionsListThunk(formData));
+      /*  } else {
         dispatch(updateQuestionThunk(formData));
-      }
+      } */
       setFormData(initialFormData);
       navigate(-1);
     }
   };
 
-  const question = useSelector((state) => {
+  /*const question = useSelector((state) => {
     return state.oneQuestionData;
   });
 
@@ -203,26 +202,26 @@ const MainCreateListBody = () => {
         <NameBox>
           <LabelText>NAME</LabelText>
           <NameInput
-            /* onChange={handleChange} */
-            name="question"
+            onChange={handleChange}
+            name="listName"
             type="text"
-            /*  value={formData.question} */
+            value={formData.listName}
           ></NameInput>
         </NameBox>
         <SubjectBox>
           <LabelText>SUBJECT</LabelText>
           <SubjectInput
-            /* onChange={handleChange} */
-            name="answer"
+            onChange={handleChange}
+            name="listSubject"
             type="text"
-            /* value={formData.answer} */
+            value={formData.listSubject}
           ></SubjectInput>
         </SubjectBox>
         <Buttons>
-          {/* {isFilled && ( */}
-          <SaveButton /* onClick={addQuestionHandler} */>SAVE</SaveButton>
-          {/*  )}
-          {!isFilled && <DisabledSaveButton>SAVE</DisabledSaveButton>} */}
+          {isFilled && (
+            <SaveButton onClick={addQuestionsListHandler}>SAVE</SaveButton>
+          )}
+          {!isFilled && <DisabledSaveButton>SAVE</DisabledSaveButton>}
         </Buttons>
       </Container>
     </>
