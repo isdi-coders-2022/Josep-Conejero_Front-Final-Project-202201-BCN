@@ -24,3 +24,23 @@ export const updateQuestionAction = (question) => ({
   type: actionTypes.updateQuestion,
   question,
 });
+
+export const loadQuestionsListsAction = (questionsLists) => ({
+  type: actionTypes.loadQuestionsLists,
+  questionsLists,
+});
+
+export const loadOneQuestionsListAction = (questionsList) => ({
+  type: actionTypes.loadOneQuestionsList,
+  questionsList,
+});
+
+export const deleteQuestionsListAction = (idQuestionsList) => ({
+  type: actionTypes.deleteQuestionsList,
+  idQuestionsList,
+});
+
+export const addQuestionsListAction = (questionsList) => ({
+  type: actionTypes.addQuestionsList,
+  questionsList,
+});
