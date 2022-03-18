@@ -9,13 +9,13 @@ import {
 } from "../../variables";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { loadQuestionsListThunk } from "../../redux/thunk/questionsThunk";
+import { loadQuestionsThunk } from "../../redux/thunk/questionsThunk";
 
 const AllQuestionsPage = () => {
-  const questionsList = useSelector((state) => state.questionsList);
+  const questions = useSelector((state) => state.questionsData);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(loadQuestionsListThunk);
+    dispatch(loadQuestionsThunk);
   }, [dispatch]);
 
   return (
@@ -26,8 +26,8 @@ const AllQuestionsPage = () => {
         backgroundColor={backgroundColorIconAllQuestions}
         alternativeTextImage={alternativeTextIconAllQuestions}
       ></Header>
-      <MainBody list={questionsList} screenType={"questions"}></MainBody>
-      <Footer></Footer>
+      <MainBody list={questions} screenType={"questions"}></MainBody>
+      <Footer navigateAdd={"/question"}></Footer>
     </>
   );
 };

@@ -23,7 +23,7 @@ describe("Given a component CreateListPage", () => {
 
       const logo = screen.getAllByRole("img");
 
-      expect(logo.length).toBe(4);
+      expect(logo.length).toBe(3);
     });
 
     test("it should render 3 alternativeTextIcons", () => {

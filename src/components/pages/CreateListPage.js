@@ -1,6 +1,6 @@
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-import MainBody from "../MainBody/MainBody";
+import MainCreateListBody from "../MainCreateListBody/MainCreateListBody";
 import {
   textIconCreateAList,
   iconAllQuestionsPath,
@@ -17,8 +17,8 @@ const CreateListPage = () => {
         backgroundColor={backgroundColorIconAllQuestions}
         alternativeTextImage={alternativeTextIconAllQuestions}
       ></Header>
-      <MainBody></MainBody>
-      <Footer></Footer>
+      <MainCreateListBody></MainCreateListBody>
+      <Footer hiddenAdd={true}></Footer>
     </>
   );
 };

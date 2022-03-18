@@ -18,7 +18,7 @@ const ListsPage = () => {
         alternativeTextImage={alternativeTextIconLists}
       ></Header>
       <MainBody></MainBody>
-      <Footer></Footer>
+      <Footer navigateAdd={"/create-list"}></Footer>
     </>
   );
 };
