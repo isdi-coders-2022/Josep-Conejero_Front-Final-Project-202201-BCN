@@ -1,9 +1,13 @@
 import {
   loadQuestionsAction,
+  loadOneQuestionAction,
   deleteQuestionAction,
   addQuestionAction,
   updateQuestionAction,
-  loadOneQuestionAction,
+  loadQuestionsListsAction,
+  loadOneQuestionsListAction,
+  deleteQuestionsListAction,
+  addQuestionsListAction,
 } from "./actionsCreator";
 
 describe("Given a loadQuestionsAction function", () => {
@@ -97,6 +101,90 @@ describe("Given an updateQuestionAction function", () => {
       };
 
       const expectedAction = updateQuestionAction(questionToUpdate);
+
+      expect(expectedAction).toEqual(expectedOutput);
+    });
+  });
+});
+
+describe("Given a loadQuestionsListsAction function", () => {
+  describe("When it receives a questionsLists array", () => {
+    test("Then it should return an object with type property and the questionsLists array", () => {
+      const questionsLists = [
+        {
+          name: "Lista 1",
+          subject: "Materia 1",
+        },
+        {
+          name: "Lista 2",
+          subject: "Materia 2",
+        },
+      ];
+
+      const expectedOutput = {
+        type: "load-questions-lists",
+        questionsLists: questionsLists,
+      };
+      const expectedAction = loadQuestionsListsAction(questionsLists);
+
+      expect(expectedAction).toEqual(expectedOutput);
+    });
+  });
+});
+
+describe("Given a loadOneQuestionsListAction function", () => {
+  describe("When it receives a questionsList", () => {
+    test("Then it should return an object with type property and a questionsList", () => {
+      const questionsListToLoad = {
+        id: 1,
+        name: "Lista 1",
+        subject: "Materia 1",
+      };
+
+      const expectedOutput = {
+        type: "load-one-questions-list",
+        questionsList: questionsListToLoad,
+      };
+
+      const expectedAction = loadOneQuestionsListAction(questionsListToLoad);
+
+      expect(expectedAction).toEqual(expectedOutput);
+    });
+  });
+});
+
+describe("Given a deleteQuestionsListAction function", () => {
+  describe("When it receives an id", () => {
+    test("Then it should return an object with type property and an id", () => {
+      const idQuestionsListToRemoveMocked = 1;
+
+      const expectedOutput = {
+        type: "delete-questions-list",
+        idQuestionsList: idQuestionsListToRemoveMocked,
+      };
+
+      const expectedAction = deleteQuestionsListAction(
+        idQuestionsListToRemoveMocked
+      );
+
+      expect(expectedAction).toEqual(expectedOutput);
+    });
+  });
+});
+
+describe("Given an addQuestionsListAction function", () => {
+  describe("When it receives a questionsList object", () => {
+    test("Then it should return an object with type property and the questionsList object", () => {
+      const questionsList = {
+        name: "Lista 1",
+        subject: "Materia 1",
+      };
+
+      const expectedOutput = {
+        type: "add-questions-list",
+        questionsList: questionsList,
+      };
+      const expectedAction = addQuestionsListAction(questionsList);
 
       expect(expectedAction).toEqual(expectedOutput);
     });
