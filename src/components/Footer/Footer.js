@@ -23,7 +23,7 @@ const Box = styled.div`
   bottom: 0;
 `;
 
-const Footer = ({ hiddenAdd }) => {
+const Footer = ({ hiddenAdd, navigateAdd }) => {
   const navigate = useNavigate();
   const actionOnClickBack = () => {
     navigate(-1);
@@ -32,7 +32,7 @@ const Footer = ({ hiddenAdd }) => {
     navigate("/home");
   };
   const actionOnClickAdd = () => {
-    navigate("/question", { state: { ID: 0 } });
+    navigate(navigateAdd, { state: { ID: 0 } });
   };
 
   return (
