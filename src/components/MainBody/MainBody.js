@@ -1,9 +1,12 @@
+/* import { useNavigate } from "react-router-dom"; */
 import styled from "styled-components";
+import { deleteQuestionsListThunk } from "../../redux/thunk/questionsListsThunk";
+import { deleteQuestionThunk } from "../../redux/thunk/questionsThunk";
 import {
   mainBackgroundColor,
   iconDeletePath,
   footerBackgroundColor,
-  /* iconLittleListsPath, */
+  iconLittleListsPath,
   iconLittleQuestionPath,
 } from "../../variables";
 import ListedQuestion from "../ListedQuestion/ListedQuestion";
@@ -26,20 +29,54 @@ const VoidBox = styled.div`
 `;
 
 const MainBody = ({ list, screenType }) => {
-  const questionsList = list;
-  const icono = iconLittleQuestionPath;
+  /* const navigate = useNavigate(); */
+  let icono;
+  let titleItemList;
+  let deleteFunction;
+  /* let onClickItemFunction; */
+  let pageToGoWhenItemClick;
+  switch (screenType) {
+    case "questions":
+      icono = iconLittleQuestionPath;
+      titleItemList = "question";
+      deleteFunction = deleteQuestionThunk;
+      /*  onClickItemFunction = (ID) => {
+        navigate(`/question`, {
+          state: { ID: ID },
+        });
+      }; */
+      pageToGoWhenItemClick = "/question";
+      break;
+    case "lists":
+      icono = iconLittleListsPath;
+      titleItemList = "listName";
+      deleteFunction = deleteQuestionsListThunk;
+      /* onClickItemFunction = (ID) => {
+        navigate(`/questions-list`, {
+          state: { ID: ID },
+        });
+      }; */
+      pageToGoWhenItemClick = "/questions-list";
+      break;
+    default:
+      icono = iconLittleListsPath;
+  }
+
   return (
     <>
       <VoidBox></VoidBox>
       <Box>
-        {screenType === "questions" &&
-          questionsList.length > 0 &&
-          questionsList.map((item) => {
+        {(screenType === "questions" || screenType === "lists") &&
+          list.length > 0 &&
+          list.map((item) => {
             return (
               <ListedQuestion
                 srcType={icono}
                 srcDelete={iconDeletePath}
-                questionTitle={item.question}
+                questionTitle={item[titleItemList]}
+                /*  onClickItemFunction={onClickItemFunction(item.id)} */
+                pageToGoWhenItemClick={pageToGoWhenItemClick}
+                deleteFunction={deleteFunction}
                 questionID={item.id}
                 key={item.id}
               ></ListedQuestion>

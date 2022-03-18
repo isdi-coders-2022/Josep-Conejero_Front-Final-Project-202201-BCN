@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import ButtonImage from "../ButtonImage/ButtonImage";
 import { useNavigate } from "react-router-dom";
@@ -25,11 +24,6 @@ import {
   textIconReview,
   backgroundColorIconReview,
 } from "../../variables";
-
-/* import React, { useEffect } from "react"; */
-/* import { useDispatch, useSelector } from "react-redux"; */
-
-/* import { loadUsersThunk } from "../../redux/thunks/allUsersThunks"; */
 
 const Container = styled.main`
   width: 100%;

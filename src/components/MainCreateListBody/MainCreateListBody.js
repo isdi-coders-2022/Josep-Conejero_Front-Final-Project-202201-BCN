@@ -5,13 +5,9 @@ import {
   buttonColor,
   disabledColor,
 } from "../../variables";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
-import {
-  addQuestionThunk,
-  loadOneQuestionThunk,
-  updateQuestionThunk,
-} from "../../redux/thunk/questionsThunk";
+import { useDispatch } from "react-redux";
+import { useState } from "react";
+import { addQuestionsListThunk } from "../../redux/thunk/questionsListsThunk";
 import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
@@ -25,22 +21,22 @@ const Container = styled.div`
   align-items: center;
 `;
 
-const QuestionBox = styled.div`
-  width: 90%;
-  height: 15vh;
+const NameBox = styled.div`
+  width: 70%;
+  height: 10vh;
   border-radius: 10px;
   padding: 5px;
   border: solid ${disabledColor} 2px;
-  margin-top: 25px;
-  margin-bottom: 10px;
+  margin-top: 50px;
+  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
-const AnswerBox = styled.div`
-  width: 90%;
-  height: 45vh;
+const SubjectBox = styled.div`
+  width: 70%;
+  height: 10vh;
   border-radius: 10px;
   padding: 5px;
   border: solid ${disabledColor} 2px;
@@ -66,29 +62,6 @@ const Buttons = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-`;
-
-const AddRemoveButton = styled.button`
-  background-color: ${buttonColor};
-  border: 0px;
-  height: 6vh;
-  font-size: 20px;
-  color: white;
-  border-radius: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
-  transition: 0.25s;
-  &:hover {
-    height: 7vh;
-    padding-left: 10px;
-    padding-right: 10px;
-    font-size: 22px;
-    box-shadow: 10px 10px 10px grey;
-    margin-left: 0px;
-    margin-right: 0px;
-  }
 `;
 
 const SaveButton = styled.button`
@@ -127,7 +100,7 @@ const DisabledSaveButton = styled.button`
   margin-right: 7px;
 `;
 
-const QuestionInput = styled.textarea`
+const NameInput = styled.textarea`
   /* background-color: green; */
   width: 100%;
   height: 20vh;
@@ -139,7 +112,7 @@ const QuestionInput = styled.textarea`
   top: -17px;
 `;
 
-const AnswerInput = styled.textarea`
+const SubjectInput = styled.textarea`
   /* background-color: green; */
   width: 100%;
   height: 50vh;
@@ -165,18 +138,18 @@ const LabelText = styled.p`
   top: -17px;
 `;
 
-const MainQuestionBody = ({ idQuestion }) => {
+const MainCreateListBody = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const initialFormData = {
-    id: idQuestion,
-    question: "",
-    answer: "",
+    /* id: idQuestion, */
+    listName: "",
+    listSubject: "",
   };
 
   const [formData, setFormData] = useState(initialFormData);
 
-  const isFilled = formData.question !== "" && formData.answer !== "";
+  const isFilled = formData.listName !== "" && formData.listSubject !== "";
 
   const handleChange = (event) => {
     setFormData({
@@ -185,20 +158,20 @@ const MainQuestionBody = ({ idQuestion }) => {
     });
   };
 
-  const addQuestionHandler = (event) => {
+  const addQuestionsListHandler = (event) => {
     event.preventDefault();
     if (isFilled) {
-      if (!idQuestion) {
-        dispatch(addQuestionThunk(formData));
-      } else {
+      /*  if (!idQuestion) { */
+      dispatch(addQuestionsListThunk(formData));
+      /*  } else {
         dispatch(updateQuestionThunk(formData));
-      }
+      } */
       setFormData(initialFormData);
       navigate(-1);
     }
   };
 
-  const question = useSelector((state) => {
+  /*const question = useSelector((state) => {
     return state.oneQuestionData;
   });
 
@@ -217,34 +190,33 @@ const MainQuestionBody = ({ idQuestion }) => {
       });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [question]);
+  }, [question]); */
 
   return (
     <>
       <VoidBox></VoidBox>
       <Container>
-        <QuestionBox>
-          <LabelText>QUESTION</LabelText>
-          <QuestionInput
+        <NameBox>
+          <LabelText>NAME</LabelText>
+          <NameInput
             onChange={handleChange}
-            name="question"
+            name="listName"
             type="text"
-            value={formData.question}
-          ></QuestionInput>
-        </QuestionBox>
-        <AnswerBox>
-          <LabelText>ANSWER</LabelText>
-          <AnswerInput
+            value={formData.listName}
+          ></NameInput>
+        </NameBox>
+        <SubjectBox>
+          <LabelText>SUBJECT</LabelText>
+          <SubjectInput
             onChange={handleChange}
-            name="answer"
+            name="listSubject"
             type="text"
-            value={formData.answer}
-          ></AnswerInput>
-        </AnswerBox>
+            value={formData.listSubject}
+          ></SubjectInput>
+        </SubjectBox>
         <Buttons>
-          <AddRemoveButton>ADD/REMOVE FROM LIST</AddRemoveButton>
           {isFilled && (
-            <SaveButton onClick={addQuestionHandler}>SAVE</SaveButton>
+            <SaveButton onClick={addQuestionsListHandler}>SAVE</SaveButton>
           )}
           {!isFilled && <DisabledSaveButton>SAVE</DisabledSaveButton>}
         </Buttons>
@@ -253,4 +225,4 @@ const MainQuestionBody = ({ idQuestion }) => {
   );
 };
 
-export default MainQuestionBody;
+export default MainCreateListBody;
