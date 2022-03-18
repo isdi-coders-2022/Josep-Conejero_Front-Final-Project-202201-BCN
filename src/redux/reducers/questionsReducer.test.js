@@ -27,12 +27,30 @@ describe("Given a questionsReducer function", () => {
     });
   });
 
+  describe("When it's invoked with an array of questions and and empty action", () => {
+    test("Then it should return the new state with the questions to load", () => {
+      const questions = [...arrayOfQuestions];
+      const action = {};
+      const newState = questionsReducer(questions, action);
+
+      expect(newState).toEqual(arrayOfQuestions);
+    });
+  });
+
   describe("When it receives an empty array of questions, and empty action", () => {
     test("Then it should return an empty array", () => {
       const questions = [];
       const action = {};
 
       const expectedReducer = questionsReducer(questions, action);
+
+      expect(expectedReducer).toEqual([]);
+    });
+  });
+
+  describe("When it receives no array of questions and no action", () => {
+    test("Then it should return an empty array", () => {
+      const expectedReducer = questionsReducer();
 
       expect(expectedReducer).toEqual([]);
     });
@@ -91,7 +109,7 @@ describe("Given a questionsReducer function", () => {
     });
   });
 
-  describe("When it's called with action type deleteQuestion and passed no question", () => {
+  describe("When it's called with action type deleteQuestion and passed an empty array of questions", () => {
     test("Then it should return a new state with empty questions", () => {
       const questions = [];
       const idQuestionToDelete = 1;
@@ -100,6 +118,17 @@ describe("Given a questionsReducer function", () => {
         idQuestion: idQuestionToDelete,
       };
       const newState = questionsReducer(questions, action);
+      const expectedNewState = [];
+
+      expect(newState).toEqual(expectedNewState);
+    });
+  });
+
+  describe("When it's called with no action type and passed an empty array of questions", () => {
+    test("Then it should return a new state with empty questions", () => {
+      const questions = [];
+
+      const newState = questionsReducer(questions);
       const expectedNewState = [];
 
       expect(newState).toEqual(expectedNewState);
@@ -140,6 +169,43 @@ describe("Given a questionsReducer function", () => {
       };
       const newState = questionsReducer(questions, action);
       const expectedNewState = [...questions];
+
+      expect(newState).toEqual(expectedNewState);
+    });
+  });
+
+  describe("When it's called with action type addQuestion and passed an empty array of questions", () => {
+    test("Then it should return a new state equal to currentstate", () => {
+      const questions = [];
+
+      const action = {
+        type: "add-question",
+        questions: [],
+      };
+      const newState = questionsReducer(questions, action);
+      const expectedNewState = [];
+
+      expect(newState).toEqual(expectedNewState);
+    });
+  });
+
+  describe("When it's called with action type updateQuestion and passed questions and an id", () => {
+    test("Then it should return a new state equal to currentstate", () => {
+      const questions = [
+        { id: 1, question: "Pregunta 1" },
+        { id: 2, question: "Pregunta 2" },
+      ];
+
+      const questionToUpdate = { id: 2, question: "Pregunta modificada" };
+      const action = {
+        type: "update-question",
+        question: questionToUpdate,
+      };
+      const newState = questionsReducer(questions, action);
+      const expectedNewState = [
+        { id: 1, question: "Pregunta 1" },
+        { id: 2, question: "Pregunta modificada" },
+      ];
 
       expect(newState).toEqual(expectedNewState);
     });
