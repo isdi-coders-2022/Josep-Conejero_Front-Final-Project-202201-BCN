@@ -199,7 +199,7 @@ const MainQuestionBody = ({ idQuestion }) => {
   };
 
   const question = useSelector((state) => {
-    return state.oneQuestion;
+    return state.oneQuestionData;
   });
 
   useEffect(() => {
