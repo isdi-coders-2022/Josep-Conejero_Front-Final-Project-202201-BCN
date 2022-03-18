@@ -5,12 +5,9 @@ import {
   buttonColor,
   disabledColor,
 } from "../../variables";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
-import {
-  addQuestionsListThunk,
-  loadOneQuestionsListThunk,
-} from "../../redux/thunk/questionsListsThunk";
+import { useDispatch } from "react-redux";
+import { useState } from "react";
+import { addQuestionsListThunk } from "../../redux/thunk/questionsListsThunk";
 import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
