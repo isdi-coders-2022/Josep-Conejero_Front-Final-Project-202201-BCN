@@ -7,8 +7,17 @@ import {
   backgroundColorIconLists,
   alternativeTextIconLists,
 } from "../../variables";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { loadQuestionsListsThunk } from "../../redux/thunk/questionsListsThunk";
 
 const ListsPage = () => {
+  const questionsLists = useSelector((state) => state.questionsListsData);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(loadQuestionsListsThunk);
+  }, [dispatch]);
+
   return (
     <>
       <Header
@@ -17,7 +26,7 @@ const ListsPage = () => {
         backgroundColor={backgroundColorIconLists}
         alternativeTextImage={alternativeTextIconLists}
       ></Header>
-      <MainBody></MainBody>
+      <MainBody list={questionsLists} screenType={"lists"}></MainBody>
       <Footer navigateAdd={"/create-list"}></Footer>
     </>
   );
