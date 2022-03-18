@@ -6,7 +6,6 @@ import {
   lineBetweenListedQuestionsColor,
 } from "../../variables";
 import { useDispatch } from "react-redux";
-import { deleteQuestionThunk } from "../../redux/thunk/questionsThunk";
 import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
@@ -75,21 +74,36 @@ const IconRight = styled.img`
   }
 `;
 
-const ListedQuestion = ({ srcType, srcDelete, questionTitle, questionID }) => {
+const ListedQuestion = ({
+  srcType,
+  srcDelete,
+  questionTitle,
+  pageToGoWhenItemClick,
+  deleteFunction,
+  questionID,
+}) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const deleteQuestion = () => dispatch(deleteQuestionThunk(questionID));
+  const deleteItem = () => dispatch(deleteFunction(questionID));
+  /* const deleteQuestion = () => dispatch(deleteQuestionThunk(questionID)); */
 
-  const editQuestion = () => {
+  /* const editQuestion = () => {
     navigate(`/question`, {
+      state: { ID: questionID },
+    });
+  }; */
+
+  const onClickItemFunction = () => {
+    navigate(pageToGoWhenItemClick, {
       state: { ID: questionID },
     });
   };
 
+  //antes: <LeftBox onClick={editQuestion}>
   return (
     <Container>
-      <LeftBox onClick={editQuestion}>
+      <LeftBox onClick={onClickItemFunction}>
         <IconLeft alt="Type of list" src={srcType}></IconLeft>
         <Text className="ListedQuestionText">{questionTitle}</Text>
       </LeftBox>
@@ -97,7 +111,7 @@ const ListedQuestion = ({ srcType, srcDelete, questionTitle, questionID }) => {
         <IconRight
           alt="Remove Icon"
           src={srcDelete}
-          onClick={deleteQuestion}
+          onClick={deleteItem}
         ></IconRight>
       </RightBox>
     </Container>
