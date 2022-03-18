@@ -6,7 +6,7 @@ import {
   updateQuestionAction,
 } from "../actions/actionsCreator/actionsCreator";
 
-export const loadQuestionsListThunk = async (dispatch) => {
+export const loadQuestionsThunk = async (dispatch) => {
   const response = await fetch(process.env.REACT_APP_API_URL);
 
   const { questions } = await response.json();
