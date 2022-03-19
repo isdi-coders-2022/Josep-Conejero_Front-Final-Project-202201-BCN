@@ -7,8 +7,8 @@ import QuestionPage from "./components/pages/QuestionPage";
 import ReviewPage from "./components/pages/ReviewPage";
 import AddRemoveFromListsPage from "./components/pages/AddRemoveFromListsPage";
 import CreateListPage from "./components/pages/CreateListPage";
-/* import LoginPage from "./components/pages/LoginPage";
-import RegisterPage from "./components/pages/RegisterPage"; */
+import LoginPage from "./components/pages/LoginPage";
+import RegisterPage from "./components/pages/RegisterPage";
 
 function App() {
   return (
@@ -25,8 +25,8 @@ function App() {
           element={<AddRemoveFromListsPage />}
         ></Route>
         <Route path="/create-list" element={<CreateListPage />}></Route>
-        {/*  <Route path="/login" element={<LoginPage />}></Route>
-        <Route path="/register" element={<RegisterPage />}></Route> */}
+        <Route path="/login" element={<LoginPage />}></Route>
+        <Route path="/register" element={<RegisterPage />}></Route>
         <Route path="*" element={<HomePage />} />
       </Routes>
     </>
