@@ -11,7 +11,8 @@ import { useLocation } from "react-router-dom";
 
 const QuestionPage = () => {
   const location = useLocation();
-  const questionID = location.state.ID;
+  const { ID } = location.state;
+  /* const questionID = location.state.ID; */
 
   return (
     <>
@@ -21,7 +22,7 @@ const QuestionPage = () => {
         backgroundColor={backgroundColorIconAQuestion}
         alternativeTextImage={alternativeTextIconAQuestion}
       ></Header>
-      <MainQuestionBody idQuestion={questionID}></MainQuestionBody>
+      <MainQuestionBody idQuestion={ID}></MainQuestionBody>
       <Footer hiddenAdd={true}></Footer>
     </>
   );

@@ -13,10 +13,11 @@ import {
 describe("Given a component QuestionPage", () => {
   describe("When it's rendered", () => {
     test("it should render 3 images", () => {
-      /*      render(
+      /* const mockLocation = { state: { ID: "111" } };
+      render(
         <BrowserRouter>
           <Provider store={store}>
-            <QuestionPage></QuestionPage>
+            <QuestionPage state={mockLocation}></QuestionPage>
           </Provider>
         </BrowserRouter>
       );
@@ -27,7 +28,7 @@ describe("Given a component QuestionPage", () => {
     });
 
     test("it should render 4 alternativeTextIcons", () => {
-      /*  render(
+      /* render(
         <BrowserRouter>
           <Provider store={store}>
             <QuestionPage></QuestionPage>

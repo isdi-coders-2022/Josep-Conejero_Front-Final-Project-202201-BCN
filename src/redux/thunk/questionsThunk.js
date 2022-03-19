@@ -10,9 +10,10 @@ export const loadQuestionsThunk = async (dispatch) => {
   const response = await fetch(process.env.REACT_APP_API_URL);
 
   const { questions } = await response.json();
-  if (!response.ok) return;
 
-  dispatch(loadQuestionsAction(questions));
+  if (response.ok) {
+    dispatch(loadQuestionsAction(questions));
+  }
 };
 
 export const loadOneQuestionThunk = (id) => async (dispatch) => {
@@ -42,8 +43,10 @@ export const addQuestionThunk = (question) => async (dispatch) => {
     body: JSON.stringify(question),
   });
   const newQuestion = await response.json();
-  if (!response.ok) return;
-  dispatch(addQuestionAction(newQuestion));
+
+  if (response.ok) {
+    dispatch(addQuestionAction(newQuestion));
+  }
 };
 
 export const updateQuestionThunk = (question) => async (dispatch) => {
@@ -58,6 +61,7 @@ export const updateQuestionThunk = (question) => async (dispatch) => {
     }
   );
   const modifiedQuestion = await response.json();
-  if (!response.ok) return;
-  dispatch(updateQuestionAction(modifiedQuestion));
+  if (response.ok) {
+    dispatch(updateQuestionAction(modifiedQuestion));
+  }
 };
