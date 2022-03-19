@@ -144,7 +144,7 @@ describe("Given a updateQuestionThunk function and a changed question", () => {
   });
 });
 
-/* describe("Given a updateQuestionThunk function and a changed question and a wrong ID", () => {
+describe("Given a updateQuestionThunk function and a changed question and a wrong ID", () => {
   describe("When it's called", () => {
     test("Then it should dispatch a function", async () => {
       const dispatch = jest.fn();
@@ -165,4 +165,3 @@ describe("Given a updateQuestionThunk function and a changed question", () => {
     });
   });
 });
- */
