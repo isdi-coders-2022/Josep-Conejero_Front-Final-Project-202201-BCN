@@ -154,7 +154,7 @@ describe("Given a updateQuestionThunk function and a changed question and a wron
         answer: "Answer 3",
         username: "",
         questionsLists: [],
-        id: "4000",
+        id: "5000",
       };
 
       const addQuestion = updateQuestionThunk(changedQuestion);
