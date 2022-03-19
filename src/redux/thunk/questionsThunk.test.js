@@ -1,4 +1,4 @@
-import {
+/* import {
   loadQuestionsThunk,
   loadOneQuestionThunk,
   deleteQuestionThunk,
@@ -105,7 +105,7 @@ describe("Given a addQuestionThunk function and a newQuestion", () => {
       expect(dispatch).toHaveBeenCalled();
     });
   });
-});
+}); */
 
 describe("Given a addQuestionThunk function and a wrong newQuestion", () => {
   describe("When it's called", () => {
@@ -122,7 +122,7 @@ describe("Given a addQuestionThunk function and a wrong newQuestion", () => {
   });
 });
 
-describe("Given a updateQuestionThunk function and a changed question", () => {
+/* describe("Given a updateQuestionThunk function and a changed question", () => {
   describe("When it's called", () => {
     test("Then it should dispatch a function", async () => {
       const dispatch = jest.fn();
@@ -164,4 +164,4 @@ describe("Given a updateQuestionThunk function and a changed question and a wron
       expect(dispatch).not.toBeCalled();
     });
   });
-});
+}); */
