@@ -1,3 +1,4 @@
+/* import toast from "react-hot-toast"; */
 import {
   loadQuestionsAction,
   deleteQuestionAction,
@@ -8,6 +9,12 @@ import {
 
 export const loadQuestionsThunk = async (dispatch) => {
   const response = await fetch(process.env.REACT_APP_API_URL);
+
+  /* toast.promise(response, {
+    loading: "Loading...",
+    success: "Got the data",
+    error: "Error when fetching",
+  }); */
 
   const { questions } = await response.json();
 

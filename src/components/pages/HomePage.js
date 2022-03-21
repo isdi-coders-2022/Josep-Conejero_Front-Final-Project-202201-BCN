@@ -23,7 +23,12 @@ import {
   iconReviewPath,
   textIconReview,
   backgroundColorIconReview,
+  buttonColor,
+  selectedTitleTextButtonColor,
+  selectedButtonColor,
 } from "../../variables";
+import { useDispatch, useSelector } from "react-redux";
+import { logoutUserAction } from "../../redux/actions/actionsCreator/actionsCreator";
 
 const Container = styled.main`
   width: 100%;
@@ -43,8 +48,40 @@ const ApplicationName = styled.h1`
   padding-bottom: 20px;
 `;
 
+const LogoutButton = styled.button`
+  background-color: ${buttonColor};
+  border: 0px;
+  height: 3vh;
+  font-size: 13px;
+  color: white;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 8px;
+  padding-top: 2px;
+  margin-left: 0px;
+  margin-right: 3px;
+  transition: 0.25s;
+  position: fixed;
+  top: 2px;
+  right: 0px;
+  &:hover {
+    background-color: ${selectedButtonColor};
+    color: ${selectedTitleTextButtonColor};
+    box-shadow: 5px 5px 5px grey;
+  }
+`;
+
 const HomePage = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
+
+  const actionOnClickLogOut = () => {
+    dispatch(logoutUserAction(user));
+    localStorage.removeItem("token");
+    navigate("/login");
+  };
+
   const buttonLists = {
     imageAlt: alternativeTextIconLists,
     image: iconListsPath,
@@ -86,43 +123,46 @@ const HomePage = () => {
   };
 
   return (
-    <Container>
-      <img alt={alternativeTextApplicationIcon} src={iconApplicationPath} />
-      <ApplicationName>{applicationName}</ApplicationName>
-      <div>
-        <ButtonImage
-          imageAlt={buttonLists.imageAlt}
-          image={buttonLists.image}
-          actionOnClick={buttonLists.actionOnClick}
-          title={buttonLists.title}
-          inputColor={buttonLists.bgcolor}
-        ></ButtonImage>
+    <>
+      <Container>
+        <LogoutButton onClick={actionOnClickLogOut}>LOG OUT</LogoutButton>
+        <img alt={alternativeTextApplicationIcon} src={iconApplicationPath} />
+        <ApplicationName>{applicationName}</ApplicationName>
+        <div>
+          <ButtonImage
+            imageAlt={buttonLists.imageAlt}
+            image={buttonLists.image}
+            actionOnClick={buttonLists.actionOnClick}
+            title={buttonLists.title}
+            inputColor={buttonLists.bgcolor}
+          ></ButtonImage>
 
-        <ButtonImage
-          imageAlt={buttonAllQuestions.imageAlt}
-          image={buttonAllQuestions.image}
-          actionOnClick={buttonAllQuestions.actionOnClick}
-          title={buttonAllQuestions.title}
-          inputColor={buttonAllQuestions.bgcolor}
-        ></ButtonImage>
+          <ButtonImage
+            imageAlt={buttonAllQuestions.imageAlt}
+            image={buttonAllQuestions.image}
+            actionOnClick={buttonAllQuestions.actionOnClick}
+            title={buttonAllQuestions.title}
+            inputColor={buttonAllQuestions.bgcolor}
+          ></ButtonImage>
 
-        <ButtonImage
-          imageAlt={buttonOneQuestion.imageAlt}
-          image={buttonOneQuestion.image}
-          actionOnClick={buttonOneQuestion.actionOnClick}
-          title={buttonOneQuestion.title}
-          inputColor={buttonOneQuestion.bgcolor}
-        ></ButtonImage>
+          <ButtonImage
+            imageAlt={buttonOneQuestion.imageAlt}
+            image={buttonOneQuestion.image}
+            actionOnClick={buttonOneQuestion.actionOnClick}
+            title={buttonOneQuestion.title}
+            inputColor={buttonOneQuestion.bgcolor}
+          ></ButtonImage>
 
-        <ButtonImage
-          imageAlt={buttonReview.imageAlt}
-          image={buttonReview.image}
-          actionOnClick={buttonReview.actionOnClick}
-          title={buttonReview.title}
-          inputColor={buttonReview.bgcolor}
-        ></ButtonImage>
-      </div>
-    </Container>
+          <ButtonImage
+            imageAlt={buttonReview.imageAlt}
+            image={buttonReview.image}
+            actionOnClick={buttonReview.actionOnClick}
+            title={buttonReview.title}
+            inputColor={buttonReview.bgcolor}
+          ></ButtonImage>
+        </div>
+      </Container>
+    </>
   );
 };
 
