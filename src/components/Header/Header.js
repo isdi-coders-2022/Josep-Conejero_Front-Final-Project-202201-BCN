@@ -1,5 +1,14 @@
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { headerBackgroundColor, mainTextColor } from "../../variables";
+import { logoutUserAction } from "../../redux/actions/actionsCreator/actionsCreator";
+import {
+  buttonColor,
+  headerBackgroundColor,
+  mainTextColor,
+  selectedButtonColor,
+  selectedTitleTextButtonColor,
+} from "../../variables";
 
 const Box = styled.div`
   width: 100%;
@@ -41,10 +50,44 @@ const TitleText = styled.p`
   margin: 10px;
 `;
 
+const LogoutButton = styled.button`
+  background-color: ${buttonColor};
+  border: 0px;
+  height: 3vh;
+  font-size: 13px;
+  color: white;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 8px;
+  padding-top: 2px;
+  margin-left: 0px;
+  margin-right: 3px;
+  transition: 0.25s;
+  position: fixed;
+  top: 2px;
+  right: 0px;
+  &:hover {
+    background-color: ${selectedButtonColor};
+    color: ${selectedTitleTextButtonColor};
+    box-shadow: 5px 5px 5px grey;
+  }
+`;
+
 const Header = ({ title, picture, backgroundColor, alternativeTextImage }) => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
+
+  const actionOnClickLogOut = () => {
+    dispatch(logoutUserAction(user));
+    localStorage.removeItem("token");
+    navigate("/login");
+  };
+
   return (
     <>
       <Box>
+        <LogoutButton onClick={actionOnClickLogOut}>LOG OUT</LogoutButton>
         <ImageBox>
           <Image
             inputColor={backgroundColor}
@@ -53,7 +96,6 @@ const Header = ({ title, picture, backgroundColor, alternativeTextImage }) => {
           ></Image>
         </ImageBox>
         <TitleText>{title}</TitleText>
-        {/* <Logout></Logout> */}
       </Box>
     </>
   );
