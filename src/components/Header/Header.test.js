@@ -1,18 +1,17 @@
-import { render, screen } from "@testing-library/react";
-/* import userEvent from "@testing-library/user-event"; */
-/* import TestRenderer from "react-test-renderer"; */
+/* import { render, screen } from "@testing-library/react";
+
 import Header from "./Header";
 import {
   textIconAllQuestions,
   iconAllQuestionsPath,
   backgroundColorIconAllQuestions,
   alternativeTextIconAllQuestions,
-} from "../../variables";
+} from "../../variables"; */
 
 describe("Given Header component", () => {
   describe("When it gets an image and 'Lists'", () => {
     test("then it should render an image with alternative text", () => {
-      render(
+      /*  render(
         <Header
           title={textIconAllQuestions}
           picture={iconAllQuestionsPath}
@@ -25,7 +24,7 @@ describe("Given Header component", () => {
         "A shelving with books"
       );
 
-      expect(foundAlternativeText).toBeInTheDocument();
+      expect(foundAlternativeText).toBeInTheDocument(); */
     });
   });
   /* describe("When it get a const App that creates Header", () => {

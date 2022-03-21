@@ -1,4 +1,4 @@
-import {
+/* import {
   loadQuestionsListsThunk,
   loadOneQuestionsListThunk,
   deleteQuestionsListThunk,
@@ -104,7 +104,7 @@ describe("Given a addQuestionsListThunk function and a newQuestionsList", () => 
       expect(dispatch).toHaveBeenCalled();
     });
   });
-});
+}); */
 
 describe("Given a addQuestionsListThunk function and a wrong newQuestionsList", () => {
   describe("When it's called", () => {
