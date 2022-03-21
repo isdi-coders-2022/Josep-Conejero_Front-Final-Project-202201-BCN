@@ -58,3 +58,5 @@ export const footerBackgroundColor = "#e5e5e5";
 export const homeBackgroundColor = "#e5e5e5";
 
 export const disabledColor = "#B9B9B9";
+export const backgroundColorFullPage = "#F8F8F8";
+export const titlePageColor = "#000";
