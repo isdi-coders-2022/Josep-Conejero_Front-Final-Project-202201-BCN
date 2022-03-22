@@ -1,8 +1,8 @@
 import createUserReducer from "./createUserReducer";
 
 describe("Given a createUserReducer", () => {
-  describe("When it receives an array of users and and action create-user", () => {
-    test("Then it should return the user", () => {
+  describe("When it receives an array of users and and action create-user with a new user", () => {
+    test("Then it should return an array with the new user included", () => {
       const users = [
         { id: 1, username: "josep" },
         { id: 2, username: "cilantro" },
@@ -24,28 +24,52 @@ describe("Given a createUserReducer", () => {
     });
   });
 
-  describe("When it doesn't receives any action and any user", () => {
-    test("Then it should return an empty user with isLogged = false", () => {
-      /*   const newUser = createUserReducer();
+  describe("When it receives an array of users and no action", () => {
+    test("Then it should return the same array of users", () => {
+      const users = [
+        { id: 1, username: "josep" },
+        { id: 2, username: "cilantro" },
+      ];
 
-      expect(newUser).toEqual({ isLogged: false }); */
+      const action = {};
+
+      const newState = createUserReducer(users, action);
+      const expectedNewState = [
+        { id: 1, username: "josep" },
+        { id: 2, username: "cilantro" },
+      ];
+
+      expect(newState).toEqual(expectedNewState);
     });
   });
 
-  describe("When it receives a user and and action logout-user", () => {
-    test("Then it should return the user", () => {
-      /*    const user = { isLogged: true, username: "josep", password: "josep" };
-      const expectedUser = {
-        isLogged: false,
-      };
+  describe("When it receives an array of users and an action create-user and an empty user", () => {
+    test("Then it should return the same array of users", () => {
+      const users = [
+        { id: 1, username: "josep" },
+        { id: 2, username: "cilantro" },
+      ];
       const action = {
         type: "create-user",
-        user: expectedUser,
+        /*  user: {}, */
       };
 
-      const newUser = createUserReducer(user, action);
+      const newState = createUserReducer(users, action);
+      const expectedNewState = [
+        { id: 1, username: "josep" },
+        { id: 2, username: "cilantro" },
+      ];
 
-      expect(newUser).toEqual(expectedUser); */
+      expect(newState).toEqual(expectedNewState);
+    });
+  });
+
+  describe("When it receives no array of users and no action", () => {
+    test("Then it should return an empty array", () => {
+      const newState = createUserReducer();
+      const expectedNewState = [];
+
+      expect(newState).toEqual(expectedNewState);
     });
   });
 });

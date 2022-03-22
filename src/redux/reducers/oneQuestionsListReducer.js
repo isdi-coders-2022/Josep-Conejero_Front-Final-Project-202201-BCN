@@ -6,7 +6,6 @@ const oneQuestionsListReducer = (questionsList = {}, action = {}) => {
     case actionTypes.loadOneQuestionsList:
       newQuestionState = { ...action.questionsList };
       break;
-
     default:
       newQuestionState = { ...questionsList };
   }

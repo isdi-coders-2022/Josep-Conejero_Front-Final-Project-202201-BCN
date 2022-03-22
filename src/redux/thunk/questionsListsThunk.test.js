@@ -1,4 +1,4 @@
-/* import {
+import {
   loadQuestionsListsThunk,
   loadOneQuestionsListThunk,
   deleteQuestionsListThunk,
@@ -104,12 +104,12 @@ describe("Given a addQuestionsListThunk function and a newQuestionsList", () => 
       expect(dispatch).toHaveBeenCalled();
     });
   });
-}); */
+});
 
 describe("Given a addQuestionsListThunk function and a wrong newQuestionsList", () => {
   describe("When it's called", () => {
     test("Then it shouldn't dispatch a function", async () => {
-      /*  const dispatch = jest.fn();
+      /* const dispatch = jest.fn();
       const wrongQuestionsList = { wrong: "Question 3" };
 
       const addQuestion = addQuestionsListThunk(wrongQuestionsList);

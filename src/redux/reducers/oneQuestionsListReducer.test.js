@@ -4,9 +4,10 @@ describe("Given a oneQuestionsListReducer function", () => {
   describe("When it's called with action type loadOneQuestionsList and passed a questionsList and an action", () => {
     test("Then it should return a questionsList", () => {
       const questionsList = { id: 1, listName: "Nombre 1" };
+      const loadedQuestionsList = { id: 2, listName: "Nombre 2" };
       const action = {
         type: "load-one-questionsList",
-        questionsList,
+        questionsList: loadedQuestionsList,
       };
 
       const newState = oneQuestionsListReducer(questionsList, action);
@@ -34,9 +35,10 @@ describe("Given a oneQuestionsListReducer function", () => {
   describe("When it's called with action type loadOneQuestionsList and passed an action and no questionsList", () => {
     test("Then it should return a new state equal to currentstate", () => {
       const questionsList = {};
+      const emptyQuestionsList = {};
       const action = {
         type: "load-one-questionsList",
-        questionsList: questionsList,
+        questionsList: emptyQuestionsList,
       };
 
       const newState = oneQuestionsListReducer(questionsList, action);
