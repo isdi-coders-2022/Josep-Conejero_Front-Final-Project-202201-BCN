@@ -12,7 +12,6 @@ const rootReducer = combineReducers({
   questionsData: questionsReducer,
   oneQuestionsListData: oneQuestionsListReducer,
   questionsListsData: questionsListsReducer,
-  /* user: userReducer, */
   user: loginReducer,
   newUser: createUserReducer,
 });

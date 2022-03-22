@@ -45,38 +45,10 @@ export const addQuestionsListAction = (questionsList) => ({
   questionsList,
 });
 
-/* export const loginAction = (login) => ({
-  type: actionTypes.login,
-  login,
-});
-export const logOutAction = () => ({
-  type: actionTypes.logout,
-});
-
-export const registerAction = (user) => ({
-  type: actionTypes.register,
-  user,
-});
-
-export const errorOnLoginAction = (error) => ({
-  type: actionTypes.loginError,
-  error,
-});
-
-export const errorOnRegisterAction = (error) => ({
-  type: actionTypes.registerError,
-  error,
-}); */
-
 export const loginUserAction = (user) => ({
   type: actionTypes.loginUser,
   user,
 });
-
-/* export const loadProfileAction = (user) => ({
-  type: actionTypes.loadProfile,
-  user,
-}); */
 
 export const createUserAction = (user) => ({
   type: actionTypes.createUser,

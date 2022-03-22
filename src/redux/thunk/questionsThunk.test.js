@@ -1,9 +1,9 @@
-/* import {
+import {
   loadQuestionsThunk,
   loadOneQuestionThunk,
   deleteQuestionThunk,
   addQuestionThunk,
-  updateQuestionThunk,
+  /* updateQuestionThunk, */
 } from "./questionsThunk";
 
 import { server } from "../../mocks/server";
@@ -105,7 +105,7 @@ describe("Given a addQuestionThunk function and a newQuestion", () => {
       expect(dispatch).toHaveBeenCalled();
     });
   });
-}); */
+});
 
 describe("Given a addQuestionThunk function and a wrong newQuestion", () => {
   describe("When it's called", () => {

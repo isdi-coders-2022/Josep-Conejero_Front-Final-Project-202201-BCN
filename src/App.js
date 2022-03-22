@@ -29,18 +29,6 @@ function App() {
 
   const { isLogged } = useSelector((state) => state.user);
 
-  /* console.log(isLogged); */
-  //useSelector / user.isLogged
-  //isLogged
-
-  window.addEventListener("beforeunload", function (e) {
-    /*  localStorage.removeItem("token"); */
-    /*  var confirmationMessage = "no cierres esto, joder";
-// this comment
-    (e || window.event).returnValue = confirmationMessage; //Gecko + IE
-    return confirmationMessage; //Webkit, Safari, Chrome */
-  });
-
   return (
     <>
       <div>
@@ -48,7 +36,6 @@ function App() {
       </div>
       <Routes>
         {isLogged ? (
-          /* {true ? ( */
           <>
             <Route path="*" element={<Navigate to="/home" />} />
             <Route path="/home" element={<HomePage />}></Route>
@@ -68,10 +55,8 @@ function App() {
           </>
         ) : (
           <>
-            {/*  <Route path="/" element={<LoginPage />}></Route> */}
             <Route path="/login" element={<LoginPage />}></Route>
             <Route path="/register" element={<RegisterPage />}></Route>
-            {/*   <Route path="*" element={<LoginPage />} /> */}
             <Route path="*" element={<Navigate to="/login" />} />
           </>
         )}
