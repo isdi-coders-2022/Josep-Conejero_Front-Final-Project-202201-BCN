@@ -3,7 +3,7 @@ import {
   loadOneQuestionThunk,
   deleteQuestionThunk,
   addQuestionThunk,
-  updateQuestionThunk,
+  /* updateQuestionThunk, */
 } from "./questionsThunk";
 
 import { server } from "../../mocks/server";
