@@ -36,7 +36,7 @@ function App() {
   window.addEventListener("beforeunload", function (e) {
     /*  localStorage.removeItem("token"); */
     /*  var confirmationMessage = "no cierres esto, joder";
-
+// this comment
     (e || window.event).returnValue = confirmationMessage; //Gecko + IE
     return confirmationMessage; //Webkit, Safari, Chrome */
   });
