@@ -10,15 +10,7 @@ const actionTypes = {
   deleteQuestionsList: "delete-questions-list",
   addQuestionsList: "add-questions-list",
 
-  /*   login: "login-user",
-  logout: "logout-user",
-  register: "register-user", */
-
-  /* loginError: "error-onLogin",
-  registerError: "error-register", */
-
   loginUser: "login-user",
-  /*  loadProfile: "load-profile", */
   createUser: "create-user",
   logoutUser: "logout-user",
 };

@@ -33,13 +33,13 @@ function App() {
   //useSelector / user.isLogged
   //isLogged
 
-  window.addEventListener("beforeunload", function (e) {
-    /*  localStorage.removeItem("token"); */
-    /*  var confirmationMessage = "no cierres esto, joder";
+  /*  window.addEventListener("beforeunload", function (e) {
+     localStorage.removeItem("token");
+     var confirmationMessage = "no cierres esto, joder";
 
     (e || window.event).returnValue = confirmationMessage; //Gecko + IE
-    return confirmationMessage; //Webkit, Safari, Chrome */
-  });
+    return confirmationMessage; //Webkit, Safari, Chrome
+  }); */
 
   return (
     <>
@@ -48,7 +48,6 @@ function App() {
       </div>
       <Routes>
         {isLogged ? (
-          /* {true ? ( */
           <>
             <Route path="*" element={<Navigate to="/home" />} />
             <Route path="/home" element={<HomePage />}></Route>

@@ -20,11 +20,14 @@ export const loginThunk = (user, navigate) => async (dispatch) => {
     .then((response) => {
       const { data } = response;
       const token = data.token;
+      console.log(token);
       localStorage.setItem("token", token);
       dispatch(loginUserAction(user));
+
       navigate("/home");
     })
     .catch((error) => {
+      console.log("entra en el catch");
       toast.error(`USER OR PASSWORD ARE WRONG`, {
         duration: 2000,
         style: {

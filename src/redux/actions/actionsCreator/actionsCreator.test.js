@@ -8,6 +8,9 @@ import {
   loadOneQuestionsListAction,
   deleteQuestionsListAction,
   addQuestionsListAction,
+  loginUserAction,
+  createUserAction,
+  logoutUserAction,
 } from "./actionsCreator";
 
 describe("Given a loadQuestionsAction function", () => {
@@ -185,6 +188,63 @@ describe("Given an addQuestionsListAction function", () => {
         questionsList: questionsList,
       };
       const expectedAction = addQuestionsListAction(questionsList);
+
+      expect(expectedAction).toEqual(expectedOutput);
+    });
+  });
+});
+
+describe("Given an loginUserAction function", () => {
+  describe("When it receives a user object", () => {
+    test("Then it should return an object with type property and the user object", () => {
+      const user = {
+        username: "josep",
+        password: "josep",
+      };
+
+      const expectedOutput = {
+        type: "login-user",
+        user: user,
+      };
+      const expectedAction = loginUserAction(user);
+
+      expect(expectedAction).toEqual(expectedOutput);
+    });
+  });
+});
+
+describe("Given an createUserAction function", () => {
+  describe("When it receives a user object", () => {
+    test("Then it should return an object with type property and the user object", () => {
+      const user = {
+        username: "josep",
+        password: "josep",
+      };
+
+      const expectedOutput = {
+        type: "create-user",
+        user: user,
+      };
+      const expectedAction = createUserAction(user);
+
+      expect(expectedAction).toEqual(expectedOutput);
+    });
+  });
+});
+
+describe("Given an logoutUserAction function", () => {
+  describe("When it receives a user object", () => {
+    test("Then it should return an object with type property and the user object", () => {
+      const user = {
+        username: "josep",
+        password: "josep",
+      };
+
+      const expectedOutput = {
+        type: "logout-user",
+        user: user,
+      };
+      const expectedAction = logoutUserAction(user);
 
       expect(expectedAction).toEqual(expectedOutput);
     });
