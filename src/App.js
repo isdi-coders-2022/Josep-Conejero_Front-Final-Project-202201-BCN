@@ -33,6 +33,14 @@ function App() {
   //useSelector / user.isLogged
   //isLogged
 
+  window.addEventListener("beforeunload", function (e) {
+    /*  localStorage.removeItem("token"); */
+    /*  var confirmationMessage = "no cierres esto, joder";
+
+    (e || window.event).returnValue = confirmationMessage; //Gecko + IE
+    return confirmationMessage; //Webkit, Safari, Chrome */
+  });
+
   return (
     <>
       <div>
@@ -42,6 +50,7 @@ function App() {
         {isLogged ? (
           /* {true ? ( */
           <>
+            <Route path="*" element={<Navigate to="/home" />} />
             <Route path="/home" element={<HomePage />}></Route>
             <Route path="/lists" element={<ListsPage />}></Route>
             <Route
@@ -59,6 +68,7 @@ function App() {
           </>
         ) : (
           <>
+            {/*  <Route path="/" element={<LoginPage />}></Route> */}
             <Route path="/login" element={<LoginPage />}></Route>
             <Route path="/register" element={<RegisterPage />}></Route>
             {/*   <Route path="*" element={<LoginPage />} /> */}
