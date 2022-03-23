@@ -54,7 +54,6 @@ const VoidBox = styled.div`
 `;
 
 const Buttons = styled.div`
-  /* background-color: red; */
   width: 100%;
   height: 10vh;
   position: fixed;
@@ -101,7 +100,6 @@ const DisabledSaveButton = styled.button`
 `;
 
 const NameInput = styled.textarea`
-  /* background-color: green; */
   width: 100%;
   height: 20vh;
   font-size: 20px;
@@ -113,7 +111,6 @@ const NameInput = styled.textarea`
 `;
 
 const SubjectInput = styled.textarea`
-  /* background-color: green; */
   width: 100%;
   height: 50vh;
   font-size: 20px;
@@ -142,7 +139,6 @@ const MainCreateListBody = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const initialFormData = {
-    /* id: idQuestion, */
     listName: "",
     listSubject: "",
   };
@@ -161,36 +157,11 @@ const MainCreateListBody = () => {
   const addQuestionsListHandler = (event) => {
     event.preventDefault();
     if (isFilled) {
-      /*  if (!idQuestion) { */
       dispatch(addQuestionsListThunk(formData));
-      /*  } else {
-        dispatch(updateQuestionThunk(formData));
-      } */
       setFormData(initialFormData);
       navigate(-1);
     }
   };
-
-  /*const question = useSelector((state) => {
-    return state.oneQuestionData;
-  });
-
-  useEffect(() => {
-    if (idQuestion) {
-      dispatch(loadOneQuestionThunk(idQuestion));
-    }
-  }, [dispatch, idQuestion]);
-
-  useEffect(() => {
-    if (idQuestion) {
-      setFormData({
-        id: question.id,
-        question: question.question,
-        answer: question.answer,
-      });
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [question]); */
 
   return (
     <>
@@ -201,6 +172,7 @@ const MainCreateListBody = () => {
           <NameInput
             onChange={handleChange}
             name="listName"
+            title="listName"
             type="text"
             value={formData.listName}
           ></NameInput>
@@ -210,6 +182,7 @@ const MainCreateListBody = () => {
           <SubjectInput
             onChange={handleChange}
             name="listSubject"
+            title="listSubject"
             type="text"
             value={formData.listSubject}
           ></SubjectInput>

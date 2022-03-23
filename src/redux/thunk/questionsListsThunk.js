@@ -9,7 +9,6 @@ export const loadQuestionsListsThunk = async (dispatch) => {
   const response = await fetch(process.env.REACT_APP_API_URL_LIST);
 
   const { questionsLists } = await response.json();
-  if (!response.ok) return;
 
   dispatch(loadQuestionsListsAction(questionsLists));
 };

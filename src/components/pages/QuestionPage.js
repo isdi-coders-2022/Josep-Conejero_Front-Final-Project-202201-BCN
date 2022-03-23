@@ -12,7 +12,6 @@ import { useLocation } from "react-router-dom";
 const QuestionPage = () => {
   const location = useLocation();
   const { ID } = location.state;
-  /* const questionID = location.state.ID; */
 
   return (
     <>

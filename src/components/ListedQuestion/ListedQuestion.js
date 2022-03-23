@@ -28,7 +28,6 @@ const LeftBox = styled.div`
 
 const RightBox = styled.div`
   width: 12%;
-  /* background-color: green; */
   display: flex;
 `;
 
@@ -86,13 +85,6 @@ const ListedQuestion = ({
   const navigate = useNavigate();
 
   const deleteItem = () => dispatch(deleteFunction(questionID));
-  /* const deleteQuestion = () => dispatch(deleteQuestionThunk(questionID)); */
-
-  /* const editQuestion = () => {
-    navigate(`/question`, {
-      state: { ID: questionID },
-    });
-  }; */
 
   const onClickItemFunction = () => {
     navigate(pageToGoWhenItemClick, {
@@ -100,7 +92,6 @@ const ListedQuestion = ({
     });
   };
 
-  //antes: <LeftBox onClick={editQuestion}>
   return (
     <Container>
       <LeftBox onClick={onClickItemFunction}>

@@ -73,7 +73,12 @@ const LogoutButton = styled.button`
   }
 `;
 
-const Header = ({ title, picture, backgroundColor, alternativeTextImage }) => {
+export const Header = ({
+  title,
+  picture,
+  backgroundColor,
+  alternativeTextImage,
+}) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);

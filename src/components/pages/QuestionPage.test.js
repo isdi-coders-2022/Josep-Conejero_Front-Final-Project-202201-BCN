@@ -1,4 +1,4 @@
-/* import { render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import QuestionPage from "./QuestionPage";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
@@ -8,27 +8,31 @@ import {
   alternativeTextBackIcon,
   alternativeTextHomeIcon,
   alternativeTextAddIcon,
-} from "../../variables"; */
+} from "../../variables";
+
+jest.mock("react-router-dom", () => ({
+  ...jest.requireActual("react-router-dom"),
+  useLocation: () => ({ state: { ID: "1" } }),
+}));
 
 describe("Given a component QuestionPage", () => {
   describe("When it's rendered", () => {
     test("it should render 3 images", () => {
-      /* const mockLocation = { state: { ID: "111" } };
       render(
         <BrowserRouter>
           <Provider store={store}>
-            <QuestionPage state={mockLocation}></QuestionPage>
+            <QuestionPage></QuestionPage>
           </Provider>
         </BrowserRouter>
       );
 
       const logo = screen.getAllByRole("img");
 
-      expect(logo.length).toBe(3); */
+      expect(logo.length).toBe(3);
     });
 
     test("it should render 4 alternativeTextIcons", () => {
-      /* render(
+      render(
         <BrowserRouter>
           <Provider store={store}>
             <QuestionPage></QuestionPage>
@@ -51,7 +55,7 @@ describe("Given a component QuestionPage", () => {
       expect(expectedAlternativeTextIconAQuestion).toBeInTheDocument();
       expect(expectedAlternativeTextBackIcon).toBeInTheDocument();
       expect(expectedAlternativeTextHomeIcon).toBeInTheDocument();
-      expect(expectedAlternativeTextAddIcon).toBeInTheDocument(); */
+      expect(expectedAlternativeTextAddIcon).toBeInTheDocument();
     });
   });
 });

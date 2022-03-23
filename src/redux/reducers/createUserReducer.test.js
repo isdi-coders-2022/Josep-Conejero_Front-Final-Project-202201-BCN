@@ -51,7 +51,6 @@ describe("Given a createUserReducer", () => {
       ];
       const action = {
         type: "create-user",
-        /*  user: {}, */
       };
 
       const newState = createUserReducer(users, action);

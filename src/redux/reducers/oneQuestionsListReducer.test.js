@@ -1,19 +1,20 @@
+import { type } from "os";
+import actionTypes from "../actions/actionTypes/actionTypes";
 import oneQuestionsListReducer from "./oneQuestionsListReducer";
 
 describe("Given a oneQuestionsListReducer function", () => {
   describe("When it's called with action type loadOneQuestionsList and passed a questionsList and an action", () => {
     test("Then it should return a questionsList", () => {
       const questionsList = { id: 1, listName: "Nombre 1" };
-      const loadedQuestionsList = { id: 2, listName: "Nombre 2" };
+      const loadedQuestionsList = { id: 1, listName: "Nombre 1" };
       const action = {
-        type: "load-one-questionsList",
+        type: actionTypes.loadOneQuestionsList,
         questionsList: loadedQuestionsList,
       };
 
       const newState = oneQuestionsListReducer(questionsList, action);
-      const expectedNewState = { id: 1, listName: "Nombre 1" };
 
-      expect(newState).toEqual(expectedNewState);
+      expect(newState).toEqual(loadedQuestionsList);
     });
   });
 
@@ -21,7 +22,7 @@ describe("Given a oneQuestionsListReducer function", () => {
     test("Then it should return a questionsList", () => {
       const questionsList = { id: 1, listName: "Nombre 1" };
       const action = {
-        type: "load-one-questionsList",
+        type: actionTypes.loadOneQuestionsList,
         questionsList: questionsList,
       };
 
@@ -37,7 +38,7 @@ describe("Given a oneQuestionsListReducer function", () => {
       const questionsList = {};
       const emptyQuestionsList = {};
       const action = {
-        type: "load-one-questionsList",
+        type: actionTypes.loadOneQuestionsList,
         questionsList: emptyQuestionsList,
       };
 

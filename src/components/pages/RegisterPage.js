@@ -1,27 +1,10 @@
 import styled from "styled-components";
 import {
-  /* homeBackgroundColor, */
   applicationNameTextColor,
-  /* iconListsPath, */
   iconApplicationPath,
   alternativeTextApplicationIcon,
   applicationName,
   buttonColor,
-  /* alternativeTextIconLists,
-  textIconLists,
-  backgroundColorIconLists,
-  iconAllQuestionsPath,
-  backgroundColorIconAllQuestions,
-  textIconAllQuestions,
-  alternativeTextIconAllQuestions,
-  alternativeTextIconAQuestion,
-  iconAQuestionPath,
-  textIconAQuestion,
-  backgroundColorIconAQuestion,
-  alternativeTextIconReview,
-  iconReviewPath,
-  textIconReview,
-  backgroundColorIconReview, */
   backgroundColorFullPage,
   mainBackgroundColor,
   titlePageColor,
@@ -29,13 +12,11 @@ import {
   iconBackPath,
   alternativeTextBackIcon,
 } from "../../variables";
-import { /* useEffect, */ useState } from "react";
-import { useDispatch /* , useSelector  */ } from "react-redux";
-import { /* Link,  */ useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
-import {
-  createUserThunk /* , loginThunk */,
-} from "../../redux/thunk/userThunk";
+import { createUserThunk } from "../../redux/thunk/userThunk";
 import IconButton from "../IconButton/IconButton";
 
 const Container = styled.main`
@@ -123,16 +104,12 @@ const DisabledButton = styled.button`
   margin: 15px;
 `;
 
-const RegisterPage = () => {
+export const RegisterPage = () => {
   const navigate = useNavigate();
 
   const actionOnClickBack = () => {
     navigate(-1);
   };
-
-  /* actionOnClick: () => {
-      navigate("/lists");
-    }, */
 
   const emptyFields = {
     name: "",
@@ -162,14 +139,6 @@ const RegisterPage = () => {
       [event.target.id]: event.target.value,
     });
   };
-
-  /*  const user = useSelector((state) => state.user);
-
-  useEffect(() => {
-    if (user.username) {
-      navigate("/home");
-    }
-  }, [navigate, user]); */
 
   return (
     <Container>

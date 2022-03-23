@@ -1,4 +1,3 @@
-/* import { useNavigate } from "react-router-dom"; */
 import styled from "styled-components";
 import { deleteQuestionsListThunk } from "../../redux/thunk/questionsListsThunk";
 import { deleteQuestionThunk } from "../../redux/thunk/questionsThunk";
@@ -24,38 +23,29 @@ const Box = styled.div`
 const VoidBox = styled.div`
   width: 100%;
   height: 79px;
-  /* background-color: transparent; */
+
   background-color: ${footerBackgroundColor};
 `;
 
 const MainBody = ({ list, screenType }) => {
-  /* const navigate = useNavigate(); */
   let icono;
   let titleItemList;
   let deleteFunction;
-  /* let onClickItemFunction; */
+
   let pageToGoWhenItemClick;
   switch (screenType) {
     case "questions":
       icono = iconLittleQuestionPath;
       titleItemList = "question";
       deleteFunction = deleteQuestionThunk;
-      /*  onClickItemFunction = (ID) => {
-        navigate(`/question`, {
-          state: { ID: ID },
-        });
-      }; */
+
       pageToGoWhenItemClick = "/question";
       break;
     case "lists":
       icono = iconLittleListsPath;
       titleItemList = "listName";
       deleteFunction = deleteQuestionsListThunk;
-      /* onClickItemFunction = (ID) => {
-        navigate(`/questions-list`, {
-          state: { ID: ID },
-        });
-      }; */
+
       pageToGoWhenItemClick = "/questions-list";
       break;
     default:
@@ -74,7 +64,6 @@ const MainBody = ({ list, screenType }) => {
                 srcType={icono}
                 srcDelete={iconDeletePath}
                 questionTitle={item[titleItemList]}
-                /*  onClickItemFunction={onClickItemFunction(item.id)} */
                 pageToGoWhenItemClick={pageToGoWhenItemClick}
                 deleteFunction={deleteFunction}
                 questionID={item.id}

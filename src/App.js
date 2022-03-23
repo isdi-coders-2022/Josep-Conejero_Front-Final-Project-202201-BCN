@@ -31,36 +31,41 @@ function App() {
 
   return (
     <>
-      <div>
-        <Toaster />
-      </div>
-      <Routes>
-        {isLogged ? (
-          <>
-            <Route path="*" element={<Navigate to="/home" />} />
-            <Route path="/home" element={<HomePage />}></Route>
-            <Route path="/lists" element={<ListsPage />}></Route>
-            <Route
-              path="/questions-list"
-              element={<QuestionsListPage />}
-            ></Route>
-            <Route path="/all-questions" element={<AllQuestionsPage />}></Route>
-            <Route path="/question" element={<QuestionPage />}></Route>
-            <Route path="/review" element={<ReviewPage />}></Route>
-            <Route
-              path="/add-remove-from-lists"
-              element={<AddRemoveFromListsPage />}
-            ></Route>
-            <Route path="/create-list" element={<CreateListPage />}></Route>
-          </>
-        ) : (
-          <>
-            <Route path="/login" element={<LoginPage />}></Route>
-            <Route path="/register" element={<RegisterPage />}></Route>
-            <Route path="*" element={<Navigate to="/login" />} />
-          </>
-        )}
-      </Routes>
+      <main>
+        <div>
+          <Toaster />
+        </div>
+        <Routes>
+          {isLogged ? (
+            <>
+              <Route path="*" element={<Navigate to="/home" />} />
+              <Route path="/home" element={<HomePage />}></Route>
+              <Route path="/lists" element={<ListsPage />}></Route>
+              <Route
+                path="/questions-list"
+                element={<QuestionsListPage />}
+              ></Route>
+              <Route
+                path="/all-questions"
+                element={<AllQuestionsPage />}
+              ></Route>
+              <Route path="/question" element={<QuestionPage />}></Route>
+              <Route path="/review" element={<ReviewPage />}></Route>
+              <Route
+                path="/add-remove-from-lists"
+                element={<AddRemoveFromListsPage />}
+              ></Route>
+              <Route path="/create-list" element={<CreateListPage />}></Route>
+            </>
+          ) : (
+            <>
+              <Route path="/login" element={<LoginPage />}></Route>
+              <Route path="/register" element={<RegisterPage />}></Route>
+              <Route path="*" element={<Navigate to="/login" />} />
+            </>
+          )}
+        </Routes>
+      </main>
     </>
   );
 }
