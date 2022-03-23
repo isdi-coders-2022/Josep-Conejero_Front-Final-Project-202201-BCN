@@ -23,7 +23,7 @@ const Box = styled.div`
   bottom: 0;
 `;
 
-const Footer = ({ hiddenAdd, navigateAdd }) => {
+export const Footer = ({ hiddenAdd, navigateAdd }) => {
   const navigate = useNavigate();
   const actionOnClickBack = () => {
     navigate(-1);
