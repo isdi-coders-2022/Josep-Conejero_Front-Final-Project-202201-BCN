@@ -23,7 +23,7 @@ const Box = styled.div`
 const VoidBox = styled.div`
   width: 100%;
   height: 79px;
-  /* background-color: transparent; */
+
   background-color: ${footerBackgroundColor};
 `;
 

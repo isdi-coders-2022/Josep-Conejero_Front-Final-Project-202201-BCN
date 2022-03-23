@@ -69,7 +69,6 @@
       "!src/index.js",
       "!src/redux/reducers/index.js",
       "!src/redux/store/store.js",
-      "!src/App.js",
       "!src/mocks/server.js",
       "!src/mocks/handlers.js"
     ]

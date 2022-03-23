@@ -58,7 +58,6 @@ const VoidBox = styled.div`
 `;
 
 const Buttons = styled.div`
-  /* background-color: red; */
   width: 100%;
   height: 10vh;
   position: fixed;
@@ -128,7 +127,6 @@ const DisabledSaveButton = styled.button`
 `;
 
 const QuestionInput = styled.textarea`
-  /* background-color: green; */
   width: 100%;
   height: 20vh;
   font-size: 20px;
@@ -140,7 +138,6 @@ const QuestionInput = styled.textarea`
 `;
 
 const AnswerInput = styled.textarea`
-  /* background-color: green; */
   width: 100%;
   height: 50vh;
   font-size: 20px;

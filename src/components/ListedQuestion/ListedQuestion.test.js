@@ -45,14 +45,7 @@ describe("Given a ListedQuestion component", () => {
         </BrowserRouter>
       );
 
-      // aquí se tiene que mockear el click sin navigate
-
-      /* const action = jest.fn();
-
-      const deleteButton = screen.getByRole("img", { name: "Remove Icon" });
-      userEvent.click(deleteButton);
-
-      expect(mockNavigate).toHaveBeenCalled(); */
+      // TODO: aquí se tiene que mockear el click sin navigate
     });
   });
 });

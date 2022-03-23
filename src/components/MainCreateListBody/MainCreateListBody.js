@@ -54,7 +54,6 @@ const VoidBox = styled.div`
 `;
 
 const Buttons = styled.div`
-  /* background-color: red; */
   width: 100%;
   height: 10vh;
   position: fixed;

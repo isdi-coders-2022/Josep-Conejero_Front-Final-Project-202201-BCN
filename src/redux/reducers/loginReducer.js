@@ -3,9 +3,6 @@ import actionTypes from "../actions/actionTypes/actionTypes";
 const loginReducer = (user = { isLogged: false }, action = {}) => {
   let newUser;
   switch (action.type) {
-    /* case actionTypes.loadProfile:
-      newUser = { ...action.user };
-      break; */
     case actionTypes.loginUser:
       newUser = { ...action.user, isLogged: true };
       break;
