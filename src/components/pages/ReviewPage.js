@@ -5,14 +5,13 @@ import {
   alternativeTextIconReview,
   backgroundColorIconReview,
   iconReviewPath,
-  textIconReview,
 } from "../../variables";
 
 const ReviewPage = () => {
   return (
     <>
       <Header
-        title={textIconReview}
+        title={"Página en construcción"}
         picture={iconReviewPath}
         backgroundColor={backgroundColorIconReview}
         alternativeTextImage={alternativeTextIconReview}
