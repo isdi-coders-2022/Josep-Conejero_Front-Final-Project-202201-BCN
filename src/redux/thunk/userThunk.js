@@ -57,16 +57,13 @@ export const createUserThunk = (user, navigate) => async (dispatch) => {
     },
     body: JSON.stringify(user),
   };
-  console.log(data);
   await axios
     .post(url, data, config)
     .then(() => {
-      console.log("entra al then");
       dispatch(createUserAction(data));
       navigate("/login");
     })
     .catch((error) => {
-      console.log("error: ");
       toast.error(`USER EXISTS`, {
         duration: 2000,
         style: {

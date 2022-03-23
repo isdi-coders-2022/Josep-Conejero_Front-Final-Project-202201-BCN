@@ -3,6 +3,7 @@ import { LoginPage } from "./LoginPage";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "../../redux/store/store";
+import userEvent from "@testing-library/user-event";
 
 describe("Given a component LoginPage", () => {
   describe("When it's rendered", () => {
@@ -39,7 +40,21 @@ describe("Given a component LoginPage", () => {
 describe("Given a component LoginPage with a button", () => {
   describe("When it is clicked", () => {
     test("It should do the action given", () => {
-      const action = jest.fn();
+      const mockUseDispatch = jest.fn();
+      const mockNavigate = jest.fn();
+      jest.mock("react-router-dom", () => ({
+        ...jest.requireActual("react-router-dom"),
+        useNavigate: () => mockNavigate,
+      }));
+
+      jest.mock("react-redux", () => {
+        return {
+          ...jest.requireActual("react-redux"),
+          useDispatch: () => mockUseDispatch,
+        };
+      });
+
+      /* const action = jest.fn(); */
 
       render(
         <BrowserRouter>
@@ -49,13 +64,18 @@ describe("Given a component LoginPage with a button", () => {
         </BrowserRouter>
       );
 
+      const expectedButton = screen.getByRole("button", { name: "LOG IN" });
+      userEvent.click(expectedButton);
+
+      expect(mockNavigate).toHaveBeenCalled();
+
       /*  render(<ButtonImage actionOnClick={action} />);*/
 
-      const button = screen.getByRole("button");
+      /*  const button = screen.getByRole("button");
 
       button.userEvent.click(action);
 
-      expect(action).toHaveBeenCalled();
+      expect(action).toHaveBeenCalled(); */
 
       /* const mockFunction = jest.fn();
 
