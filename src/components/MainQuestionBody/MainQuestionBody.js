@@ -228,6 +228,7 @@ const MainQuestionBody = ({ idQuestion }) => {
           <QuestionInput
             onChange={handleChange}
             name="question"
+            title="question"
             type="text"
             value={formData.question}
           ></QuestionInput>
@@ -237,6 +238,7 @@ const MainQuestionBody = ({ idQuestion }) => {
           <AnswerInput
             onChange={handleChange}
             name="answer"
+            title="answer"
             type="text"
             value={formData.answer}
           ></AnswerInput>

@@ -1,9 +1,9 @@
 import { render, screen, waitFor } from "@testing-library/react";
-import { LoginPage } from "./LoginPage";
-import { BrowserRouter } from "react-router-dom";
-import { Provider } from "react-redux";
-import store from "../../redux/store/store";
 import userEvent from "@testing-library/user-event";
+import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
+import store from "../../redux/store/store";
+import MainCreateListBody from "./MainCreateListBody";
 
 const mockUseDispatch = jest.fn();
 const mockNavigate = jest.fn();
@@ -19,53 +19,38 @@ jest.mock("react-redux", () => {
   };
 });
 
-describe("Given a component LoginPage", () => {
+describe("Given a MainCreateListBody component", () => {
   describe("When it's rendered", () => {
-    test("it should render 1 image", () => {
+    test("then it should show 2 elements", () => {
       render(
         <BrowserRouter>
           <Provider store={store}>
-            <LoginPage></LoginPage>
+            <MainCreateListBody></MainCreateListBody>
           </Provider>
         </BrowserRouter>
       );
 
-      const logo = screen.getAllByRole("img");
-
-      expect(logo.length).toBe(1);
-    });
-
-    test("it should render 1 button", () => {
-      render(
-        <BrowserRouter>
-          <Provider store={store}>
-            <LoginPage></LoginPage>
-          </Provider>
-        </BrowserRouter>
-      );
-
-      const buttonsRendered = screen.getAllByRole("button", { name: "LOG IN" });
-
-      expect(buttonsRendered.length).toBe(1);
+      const button = screen.getByRole("button", { name: "SAVE" });
+      expect(button).toBeInTheDocument();
     });
   });
 });
 
-describe("Given a component LoginPage with a button", () => {
+describe("Given a component MainCreateListBody with a button", () => {
   describe("When it is clicked", () => {
     test("It should do the action given", async () => {
       render(
         <BrowserRouter>
           <Provider store={store}>
-            <LoginPage></LoginPage>
+            <MainCreateListBody></MainCreateListBody>
           </Provider>
         </BrowserRouter>
       );
 
-      userEvent.type(screen.getByLabelText("USERNAME"), "USERNAME");
-      userEvent.type(screen.getByLabelText("PASSWORD"), "PASSWORD");
+      userEvent.type(screen.getByTitle("listName"), "loquesea");
+      userEvent.type(screen.getByTitle("listSubject"), "loquesea");
 
-      const button = screen.getByRole("button", { name: "LOG IN" });
+      const button = screen.getByRole("button", { name: "SAVE" });
       userEvent.click(button);
 
       await waitFor(() => {

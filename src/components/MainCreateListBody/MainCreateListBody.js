@@ -173,6 +173,7 @@ const MainCreateListBody = () => {
           <NameInput
             onChange={handleChange}
             name="listName"
+            title="listName"
             type="text"
             value={formData.listName}
           ></NameInput>
@@ -182,6 +183,7 @@ const MainCreateListBody = () => {
           <SubjectInput
             onChange={handleChange}
             name="listSubject"
+            title="listSubject"
             type="text"
             value={formData.listSubject}
           ></SubjectInput>
