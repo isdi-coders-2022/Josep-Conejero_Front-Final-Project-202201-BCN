@@ -115,6 +115,8 @@ export const handlers = [
     }
   ),
 
+  // ------------------------------------------------------------------------------------------------
+
   rest.get(`${process.env.REACT_APP_API_URL_LIST}`, (req, res, ctx) => {
     return res(
       ctx.status(200),
@@ -177,24 +179,49 @@ export const handlers = [
   }),
 
   rest.post(`${process.env.REACT_APP_API_URL_LIST}`, (req, res, ctx) => {
-    return res(
-      ctx.status(201),
-      ctx.json({
-        listName: "Nombre 4",
-        listSubject: "Materia 4",
-        username: "",
-        questionsLists: [],
-        id: "4444",
-      })
-    );
+    if (req.body.wrong) {
+      return res(
+        ctx.status(500),
+        ctx.json({
+          wrong: "Name 3",
+        })
+      );
+    } else {
+      return res(
+        ctx.status(201),
+        ctx.json({
+          listName: "Nombre 4",
+          listSubject: "Materia 4",
+          username: "",
+          questionsLists: [],
+          id: "4444",
+        })
+      );
+    }
   }),
 
-  rest.post(`${process.env.REACT_APP_API_URL_LIST}`, (req, res, ctx) => {
-    return res(
-      ctx.status(500),
-      ctx.json({
-        wrong: "Name 3",
-      })
-    );
-  }),
+  rest.post(
+    `${process.env.REACT_APP_API_URL_USER}/user/login`,
+    (req, res, ctx) => {
+      return res(
+        ctx.status(200),
+        ctx.json({
+          token:
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoicXdlciIsImlkIjoiNjIzODhjYTZlMzYzZTMyNTU3Y2U1NWE4IiwiaWF0IjoxNjQ4MDI2MDY5fQ.RGPLxPPUkgHoYo4x9SGrDnC8ejwo6lDIuYpEJGnDV0E",
+        })
+      );
+    }
+  ),
+
+  rest.post(
+    `${process.env.REACT_APP_API_URL_USER}/user/register`,
+    (req, res, ctx) => {
+      return res(
+        ctx.status(201),
+        ctx.json({
+          message: "User registered with username: qwer3",
+        })
+      );
+    }
+  ),
 ];

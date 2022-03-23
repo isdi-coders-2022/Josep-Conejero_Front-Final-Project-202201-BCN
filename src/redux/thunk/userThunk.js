@@ -15,19 +15,16 @@ export const loginThunk = (user, navigate) => async (dispatch) => {
     body: JSON.stringify(user),
   };
 
-  axios
+  await axios
     .post(url, user, config)
     .then((response) => {
       const { data } = response;
       const token = data.token;
-      console.log(token);
       localStorage.setItem("token", token);
       dispatch(loginUserAction(user));
-
       navigate("/home");
     })
     .catch((error) => {
-      console.log("entra en el catch");
       toast.error(`USER OR PASSWORD ARE WRONG`, {
         duration: 2000,
         style: {
@@ -60,14 +57,16 @@ export const createUserThunk = (user, navigate) => async (dispatch) => {
     },
     body: JSON.stringify(user),
   };
-
-  axios
+  console.log(data);
+  await axios
     .post(url, data, config)
     .then(() => {
+      console.log("entra al then");
       dispatch(createUserAction(data));
       navigate("/login");
     })
     .catch((error) => {
+      console.log("error: ");
       toast.error(`USER EXISTS`, {
         duration: 2000,
         style: {

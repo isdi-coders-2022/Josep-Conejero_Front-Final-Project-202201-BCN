@@ -3,7 +3,7 @@ import {
   loadOneQuestionThunk,
   deleteQuestionThunk,
   addQuestionThunk,
-  /* updateQuestionThunk, */
+  updateQuestionThunk,
 } from "./questionsThunk";
 
 import { server } from "../../mocks/server";
@@ -110,19 +110,20 @@ describe("Given a addQuestionThunk function and a newQuestion", () => {
 describe("Given a addQuestionThunk function and a wrong newQuestion", () => {
   describe("When it's called", () => {
     test("Then it shouldn't dispatch a function", async () => {
-      /*  const dispatch = jest.fn();
+      const dispatch = jest.fn();
       const wrongQuestion = { wrong: "Question 3" };
 
       const addQuestion = addQuestionThunk(wrongQuestion);
 
       await addQuestion(dispatch);
 
-      expect(dispatch).not.toBeCalled(); */
+      /* expect(dispatch).not.toBeCalled(); */
+      expect(dispatch).toHaveBeenCalled();
     });
   });
 });
 
-/* describe("Given a updateQuestionThunk function and a changed question", () => {
+describe("Given a updateQuestionThunk function and a changed question", () => {
   describe("When it's called", () => {
     test("Then it should dispatch a function", async () => {
       const dispatch = jest.fn();
@@ -135,9 +136,9 @@ describe("Given a addQuestionThunk function and a wrong newQuestion", () => {
         id: "6227b67fc624c56733927e2c",
       };
 
-      const addQuestion = updateQuestionThunk(changedQuestion);
+      const updatedQuestion = updateQuestionThunk(changedQuestion);
 
-      await addQuestion(dispatch);
+      await updatedQuestion(dispatch);
 
       expect(dispatch).toHaveBeenCalled();
     });
@@ -157,11 +158,11 @@ describe("Given a updateQuestionThunk function and a changed question and a wron
         id: "5000",
       };
 
-      const addQuestion = updateQuestionThunk(changedQuestion);
+      const updatedQuestion = updateQuestionThunk(changedQuestion);
 
-      await addQuestion(dispatch);
+      await updatedQuestion(dispatch);
 
       expect(dispatch).not.toBeCalled();
     });
   });
-}); */
+});

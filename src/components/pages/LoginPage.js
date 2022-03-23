@@ -1,34 +1,17 @@
 import styled from "styled-components";
 import {
-  /* homeBackgroundColor, */
   applicationNameTextColor,
-  /* iconListsPath, */
   iconApplicationPath,
   alternativeTextApplicationIcon,
   applicationName,
   buttonColor,
-  /* alternativeTextIconLists,
-  textIconLists,
-  backgroundColorIconLists,
-  iconAllQuestionsPath,
-  backgroundColorIconAllQuestions,
-  textIconAllQuestions,
-  alternativeTextIconAllQuestions,
-  alternativeTextIconAQuestion,
-  iconAQuestionPath,
-  textIconAQuestion,
-  backgroundColorIconAQuestion,
-  alternativeTextIconReview,
-  iconReviewPath,
-  textIconReview,
-  backgroundColorIconReview, */
   backgroundColorFullPage,
   mainBackgroundColor,
   titlePageColor,
   disabledColor,
 } from "../../variables";
-import { /* useEffect, */ useState } from "react";
-import { useDispatch /* , useSelector  */ } from "react-redux";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 
 import { loginThunk } from "../../redux/thunk/userThunk";
@@ -121,10 +104,6 @@ const DisabledButton = styled.button`
 const LoginPage = () => {
   const navigate = useNavigate();
 
-  /* actionOnClick: () => {
-      navigate("/lists");
-    }, */
-
   const emptyFields = {
     username: "",
     password: "",
@@ -151,14 +130,6 @@ const LoginPage = () => {
       [event.target.id]: event.target.value,
     });
   };
-
-  /*  const user = useSelector((state) => state.user);
-
-  useEffect(() => {
-    if (user.username) {
-      navigate("/home");
-    }
-  }, [navigate, user]); */
 
   return (
     <Container>

@@ -25,6 +25,18 @@ describe("Given a loadQuestionsListsThunk function", () => {
   });
 });
 
+/* describe("Given a loadQuestionsListsThunk function and", () => {
+  describe("When it is called", () => {
+    test("Then it should call the dispatch function", async () => {
+      const dispatch = jest.fn();
+
+      await loadQuestionsListsThunk(dispatch);
+
+      expect(dispatch).not.toBeCalled();
+    });
+  });
+}); */
+
 describe("Given a loadOneQuestionsListThunk function", () => {
   describe("When it's called", () => {
     test("Then it should dispatch a function", async () => {
@@ -106,17 +118,17 @@ describe("Given a addQuestionsListThunk function and a newQuestionsList", () => 
   });
 });
 
-describe("Given a addQuestionsListThunk function and a wrong newQuestionsList", () => {
+describe("Given a addQuestionsListThunk function and a wrongQuestionsList", () => {
   describe("When it's called", () => {
     test("Then it shouldn't dispatch a function", async () => {
-      /* const dispatch = jest.fn();
+      const dispatch = jest.fn();
       const wrongQuestionsList = { wrong: "Question 3" };
 
       const addQuestion = addQuestionsListThunk(wrongQuestionsList);
 
       await addQuestion(dispatch);
 
-      expect(dispatch).not.toBeCalled(); */
+      expect(dispatch).not.toBeCalled();
     });
   });
 });
