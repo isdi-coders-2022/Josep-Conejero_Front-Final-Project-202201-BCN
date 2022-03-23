@@ -1,4 +1,4 @@
-/* import { render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 
 import Header from "./Header";
 import {
@@ -6,42 +6,62 @@ import {
   iconAllQuestionsPath,
   backgroundColorIconAllQuestions,
   alternativeTextIconAllQuestions,
-} from "../../variables"; */
+} from "../../variables";
+import userEvent from "@testing-library/user-event";
+import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
+import store from "../../redux/store/store";
 
 describe("Given Header component", () => {
   describe("When it gets an image and 'Lists'", () => {
     test("then it should render an image with alternative text", () => {
-      /*  render(
-        <Header
-          title={textIconAllQuestions}
-          picture={iconAllQuestionsPath}
-          backgroundColor={backgroundColorIconAllQuestions}
-          alternativeTextImage={alternativeTextIconAllQuestions}
-        ></Header>
+      render(
+        <BrowserRouter>
+          <Provider store={store}>
+            <Header
+              title={textIconAllQuestions}
+              picture={iconAllQuestionsPath}
+              backgroundColor={backgroundColorIconAllQuestions}
+              alternativeTextImage={alternativeTextIconAllQuestions}
+            ></Header>
+          </Provider>
+        </BrowserRouter>
       );
 
       const foundAlternativeText = screen.queryByAltText(
         "A shelving with books"
       );
 
-      expect(foundAlternativeText).toBeInTheDocument(); */
+      expect(foundAlternativeText).toBeInTheDocument();
     });
   });
-  /* describe("When it get a const App that creates Header", () => {
-    test("then it should create and compare a snapshot with Header component", () => {
-      const app = TestRenderer.create(<Header />);
-      expect(app.toJSON()).toMatchSnapshot();
-    });
-  }); */
-  /* describe("When the header image is clicked", () => {
-    test("Then the passed action should be called", () => {
-      const mockFunction = jest.fn();
+});
 
-      render(<Header actionOnClick={mockFunction} />);
+describe("Given a component Header with a button", () => {
+  describe("When it is clicked", () => {
+    test("It should do the action given", () => {
+      const action = jest.fn();
 
-      const button = screen.queryByAltText("logo shawarma");
+      render(
+        <BrowserRouter>
+          <Provider store={store}>
+            <Header
+              title={textIconAllQuestions}
+              picture={iconAllQuestionsPath}
+              backgroundColor={backgroundColorIconAllQuestions}
+              alternativeTextImage={alternativeTextIconAllQuestions}
+            ></Header>
+          </Provider>
+        </BrowserRouter>
+      );
+
+      /* render(<ButtonImage actionOnClick={action} />); */
+
+      const button = screen.getByRole("button");
+
       userEvent.click(button);
-      expect(mockFunction).toHaveBeenCalled();
+
+      expect(action).toHaveBeenCalled();
     });
-  }); */
+  });
 });

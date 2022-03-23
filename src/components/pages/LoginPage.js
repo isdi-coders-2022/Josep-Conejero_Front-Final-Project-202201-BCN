@@ -101,7 +101,7 @@ const DisabledButton = styled.button`
   margin: 15px;
 `;
 
-const LoginPage = () => {
+export const LoginPage = () => {
   const navigate = useNavigate();
 
   const emptyFields = {
@@ -176,5 +176,3 @@ const LoginPage = () => {
     </Container>
   );
 };
-
-export default LoginPage;
