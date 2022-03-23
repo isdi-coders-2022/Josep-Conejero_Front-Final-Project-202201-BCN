@@ -8,7 +8,7 @@ import {
   alternativeTextIconAllQuestions,
 } from "../../variables";
 
-const QuestionsListPage = () => {
+export const QuestionsListPage = () => {
   return (
     <>
       <Header
