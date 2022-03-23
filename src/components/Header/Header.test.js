@@ -1,5 +1,4 @@
 import { render, screen } from "@testing-library/react";
-
 import Header from "./Header";
 import {
   textIconAllQuestions,
@@ -11,6 +10,13 @@ import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import store from "../../redux/store/store";
+
+const mockNavigate = jest.fn();
+
+jest.mock("react-router-dom", () => ({
+  ...jest.requireActual("react-router-dom"),
+  useNavigate: () => mockNavigate,
+}));
 
 describe("Given Header component", () => {
   describe("When it gets an image and 'Lists'", () => {
@@ -40,8 +46,6 @@ describe("Given Header component", () => {
 describe("Given a component Header with a button", () => {
   describe("When it is clicked", () => {
     test("It should do the action given", () => {
-      const action = jest.fn();
-
       render(
         <BrowserRouter>
           <Provider store={store}>
@@ -55,13 +59,10 @@ describe("Given a component Header with a button", () => {
         </BrowserRouter>
       );
 
-      /* render(<ButtonImage actionOnClick={action} />); */
+      const logoutButton = screen.getByRole("button", { name: "LOG OUT" });
+      userEvent.click(logoutButton);
 
-      const button = screen.getByRole("button");
-
-      userEvent.click(button);
-
-      expect(action).toHaveBeenCalled();
+      expect(mockNavigate).toHaveBeenCalled();
     });
   });
 });

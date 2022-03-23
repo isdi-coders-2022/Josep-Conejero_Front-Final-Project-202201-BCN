@@ -4,7 +4,6 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "../../redux/store/store";
 import {
-  /* alternativeTextIconLists, */
   alternativeTextBackIcon,
   alternativeTextHomeIcon,
   alternativeTextAddIcon,
@@ -35,9 +34,6 @@ describe("Given a component AddRemoveFromListsPage", () => {
         </BrowserRouter>
       );
 
-      /* const expectedAlternativeTextIconLists = screen.getByAltText(
-        alternativeTextIconLists
-      ); */
       const expectedAlternativeTextBackIcon = screen.getByAltText(
         alternativeTextBackIcon
       );
@@ -47,7 +43,7 @@ describe("Given a component AddRemoveFromListsPage", () => {
       const expectedAlternativeTextAddIcon = screen.getByAltText(
         alternativeTextAddIcon
       );
-      /* expect(expectedAlternativeTextIconLists).toBeInTheDocument(); */
+
       expect(expectedAlternativeTextBackIcon).toBeInTheDocument();
       expect(expectedAlternativeTextHomeIcon).toBeInTheDocument();
       expect(expectedAlternativeTextAddIcon).toBeInTheDocument();
